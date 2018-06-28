@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="utf-8"?>
+<extension type="template" version="3.8" client="site">
+    <name>TPL_GREENKEY4</name>
+    <version>4.0</version>
+    <creationDate>28.06.2018</creationDate>
+    <author>Greenkey studio</author>
+    <authorEmail>info@greenkey.ru</authorEmail>
+    <copyright>Copyright (C) 2018 Greenkey studio, All rights reserved.</copyright>
+    <description>TPL_GREENKEY4_XML_DESCRIPTION</description>
+
+    <files>
+        <filename>component.php</filename>
+        <filename>error.php</filename>
+        <filename>favicon.ico</filename>
+        <filename>index.php</filename>
+        <filename>offline.php</filename>
+        <filename>index.html</filename>
+        <filename>template_preview.png</filename>
+        <filename>template_thumbnail.png</filename>
+        <filename>templateDetails.xml</filename>
+        <folder>assets</folder>
+        <folder>code</folder>
+        <folder>fonts</folder>
+        <folder>html</folder>
+        <folder>images</folder>
+        <folder>language</folder>
+        <folder>scss</folder>
+        <folder>vendor</folder>
+    </files>
+
+    <positions>
+        <position>sidebar</position>
+        <position>navigation</position>
+        <position>debug</position>
+        <position>header</position>
+        <position>sub-header-1</position>
+        <position>sub-header-2</position>
+        <position>top</position>
+        <position>search</position>
+        <position>center-header</position>
+        <position>center</position>
+        <position>center-footer</position>
+        <position>left</position>
+        <position>right</position>
+        <position>bottom</position>
+        <position>footer</position>
+        <position>sub-footer-1</position>
+        <position>sub-footer-2</position>
+        <position>sub-footer-3</position>
+        <position>sub-footer-4</position>
+    </positions>
+
+    <config>
+        <fields name="params">
+            <fieldset name="advanced">
+                <field name="templateColor" class="" type="color" default="#08C"
+                       label="TPL_GREENKEY4_COLOR_LABEL"
+                       description="TPL_GREENKEY4_COLOR_DESC" />
+
+                <field name="templateBackgroundColor" class="" type="color" default="#F4F6F7"
+                       label="TPL_GREENKEY4_BACKGROUND_COLOR_LABEL"
+                       description="TPL_GREENKEY4_BACKGROUND_COLOR_DESC" />
+
+                <field name="logoFile" class="" type="media" default=""
+                       label="TPL_GREENKEY4_LOGO_LABEL"
+                       description="TPL_GREENKEY4_LOGO_DESC" />
+
+                <field name="sitetitle"  type="text" default=""
+                       label="JGLOBAL_TITLE"
+                       description="JFIELD_ALT_PAGE_TITLE_LABEL"
+                       filter="string" />
+
+                <field name="sitedescription"  type="text" default=""
+                       label="JGLOBAL_DESCRIPTION"
+                       description="JGLOBAL_SUBHEADING_DESC"
+                       filter="string" />
+
+                <field name="googleFont"
+                       type="radio"
+                       class="btn-group"
+                       default="1"
+                       label="TPL_GREENKEY4_FONT_LABEL"
+                       description="TPL_GREENKEY4_FONT_DESC"
+                >
+                    <option value="0">JNO</option>
+                    <option value="1">JYES</option>
+                </field>
+
+                <field name="googleFontName" class="" type="text" default="Open+Sans"
+                       label="TPL_GREENKEY4_FONT_NAME_LABEL"
+                       description="TPL_GREENKEY4_FONT_NAME_DESC" />
+
+                <field name="fluidContainer"
+                       type="radio"
+                       class="btn-group"
+                       default="0"
+                       label="TPL_GREENKEY4_FLUID_LABEL"
+                       description="TPL_GREENKEY4_FLUID_DESC"
+                >
+                    <option value="0">TPL_GREENKEY4_STATIC</option>
+                    <option value="1">TPL_GREENKEY4_FLUID</option>
+                </field>
+            </fieldset>
+        </fields>
+    </config>
+</extension>

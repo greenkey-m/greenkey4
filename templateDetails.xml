@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <extension type="template" version="3.8" client="site">
-    <name>TPL_GREENKEY4</name>
+    <name>greenkey4</name>
     <version>4.0</version>
     <creationDate>28.06.2018</creationDate>
     <author>Greenkey studio</author>

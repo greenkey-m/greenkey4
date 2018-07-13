@@ -29,6 +29,7 @@ use \Joomla\CMS\Factory;
 //JHtml::script('templates/' . $this->template . '/vendor/bootstrap4/js/bootstrap.min.js');
 //JHtml::script('https://maps.googleapis.com/maps/api/js?v=3.exp&language=ru');
 //JHtml::script('http://maps.google.com/maps/api/js?sensor=true');
+//JHtml::script('templates/' . $this->template . '/node_modules/bootstrap/dist/js/bootstrap.bundle.js');
 JHtml::script('templates/' . $this->template . '/assets/template.js');
 
 //JHtml::stylesheet('../media/jui/css/chosen.css');
@@ -86,7 +87,7 @@ if ((!$has_left) && (!$has_right)) {
 if ($params->get('logoFile')) {
     $logo = '<img class="logo" src="' . JUri::root() . $this->params->get('logoFile') . '" alt="' . $sitename . '" />';
 } else {
-    $logo = '<img class="logo" src="/images/logo/logo_small.png" />';
+    $logo = '<img class="logo" src="/images/logo/logo_full_small.png" />';
 }
 
 
@@ -97,55 +98,59 @@ if ($params->get('logoFile')) {
 <html lang="<?php echo $this->language; ?>" dir="<?php echo $this->direction; ?>">
 <head>
 
-        <!-- Mobile Metas -->
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Mobile Metas -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-        <!-- Favicons -->
-        <link rel="apple-touch-icon-precomposed" sizes="57x57" href="templates/<?php echo $this->template ?>/media/favicons/apple-touch-icon-57x57.png" />
-        <link rel="apple-touch-icon-precomposed" sizes="114x114" href="templates/<?php echo $this->template ?>/media/favicons/apple-touch-icon-114x114.png" />
-        <link rel="apple-touch-icon-precomposed" sizes="72x72" href="templates/<?php echo $this->template ?>/media/favicons/apple-touch-icon-72x72.png" />
-        <link rel="apple-touch-icon-precomposed" sizes="144x144" href="templates/<?php echo $this->template ?>/media/favicons/apple-touch-icon-144x144.png" />
-        <link rel="apple-touch-icon-precomposed" sizes="60x60" href="templates/<?php echo $this->template ?>/media/favicons/apple-touch-icon-60x60.png" />
-        <link rel="apple-touch-icon-precomposed" sizes="120x120" href="templates/<?php echo $this->template ?>/media/favicons/apple-touch-icon-120x120.png" />
-        <link rel="apple-touch-icon-precomposed" sizes="76x76" href="templates/<?php echo $this->template ?>/media/favicons/apple-touch-icon-76x76.png" />
-        <link rel="apple-touch-icon-precomposed" sizes="152x152" href="templates/<?php echo $this->template ?>/media/favicons/apple-touch-icon-152x152.png" />
-        <link rel="icon" type="image/png" href="templates/<?php echo $this->template ?>/media/favicons/favicon-196x196.png" sizes="196x196" />
-        <link rel="icon" type="image/png" href="templates/<?php echo $this->template ?>/media/favicons/favicon-96x96.png" sizes="96x96" />
-        <link rel="icon" type="image/png" href="templates/<?php echo $this->template ?>/media/favicons/favicon-32x32.png" sizes="32x32" />
-        <link rel="icon" type="image/png" href="templates/<?php echo $this->template ?>/media/favicons/favicon-16x16.png" sizes="16x16" />
-        <link rel="icon" type="image/png" href="templates/<?php echo $this->template ?>/media/favicons/favicon-128.png" sizes="128x128" />
-        <meta name="application-name" content="&nbsp;"/>
-        <meta name="msapplication-TileColor" content="#FFFFFF" />
-        <meta name="msapplication-TileImage" content="templates/<?php echo $this->template ?>/media/favicons/mstile-144x144.png" />
-        <meta name="msapplication-square70x70logo" content="templates/<?php echo $this->template ?>/media/favicons/mstile-70x70.png" />
-        <meta name="msapplication-square150x150logo" content="templates/<?php echo $this->template ?>/media/favicons/mstile-150x150.png" />
-        <meta name="msapplication-wide310x150logo" content="templates/<?php echo $this->template ?>/media/favicons/mstile-310x150.png" />
-        <meta name="msapplication-square310x310logo" content="templates/<?php echo $this->template ?>/media/favicons/mstile-310x310.png" />
+    <!-- Favicons -->
+    <link rel="apple-touch-icon-precomposed" sizes="57x57" href="templates/<?php echo $this->template ?>/media/favicons/apple-touch-icon-57x57.png" />
+    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="templates/<?php echo $this->template ?>/media/favicons/apple-touch-icon-114x114.png" />
+    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="templates/<?php echo $this->template ?>/media/favicons/apple-touch-icon-72x72.png" />
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="templates/<?php echo $this->template ?>/media/favicons/apple-touch-icon-144x144.png" />
+    <link rel="apple-touch-icon-precomposed" sizes="60x60" href="templates/<?php echo $this->template ?>/media/favicons/apple-touch-icon-60x60.png" />
+    <link rel="apple-touch-icon-precomposed" sizes="120x120" href="templates/<?php echo $this->template ?>/media/favicons/apple-touch-icon-120x120.png" />
+    <link rel="apple-touch-icon-precomposed" sizes="76x76" href="templates/<?php echo $this->template ?>/media/favicons/apple-touch-icon-76x76.png" />
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="templates/<?php echo $this->template ?>/media/favicons/apple-touch-icon-152x152.png" />
+    <link rel="icon" type="image/png" href="templates/<?php echo $this->template ?>/media/favicons/favicon-196x196.png" sizes="196x196" />
+    <link rel="icon" type="image/png" href="templates/<?php echo $this->template ?>/media/favicons/favicon-96x96.png" sizes="96x96" />
+    <link rel="icon" type="image/png" href="templates/<?php echo $this->template ?>/media/favicons/favicon-32x32.png" sizes="32x32" />
+    <link rel="icon" type="image/png" href="templates/<?php echo $this->template ?>/media/favicons/favicon-16x16.png" sizes="16x16" />
+    <link rel="icon" type="image/png" href="templates/<?php echo $this->template ?>/media/favicons/favicon-128.png" sizes="128x128" />
+    <meta name="application-name" content="&nbsp;"/>
+    <meta name="msapplication-TileColor" content="#FFFFFF" />
+    <meta name="msapplication-TileImage" content="templates/<?php echo $this->template ?>/media/favicons/mstile-144x144.png" />
+    <meta name="msapplication-square70x70logo" content="templates/<?php echo $this->template ?>/media/favicons/mstile-70x70.png" />
+    <meta name="msapplication-square150x150logo" content="templates/<?php echo $this->template ?>/media/favicons/mstile-150x150.png" />
+    <meta name="msapplication-wide310x150logo" content="templates/<?php echo $this->template ?>/media/favicons/mstile-310x150.png" />
+    <meta name="msapplication-square310x310logo" content="templates/<?php echo $this->template ?>/media/favicons/mstile-310x310.png" />
 
-        <!-- Google Webfonts
-        <link href="http://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">
-        <link href='http://fonts.googleapis.com/css?family=Roboto:400,100,100italic,300,300italic,400italic,500,700,900' rel='stylesheet' type='text/css'>
-        <link href='http://fonts.googleapis.com/css?family=Raleway:400,100,100italic,200,300,300italic,400italic,500,700,900' rel='stylesheet' type='text/css'>
-        <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,100,100italic,200,300,300italic,400italic,500,700,900' rel='stylesheet' type='text/css'> -->
+    <!-- Google Webfonts
+    <link href="http://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">
+    <link href='http://fonts.googleapis.com/css?family=Roboto:400,100,100italic,300,300italic,400italic,500,700,900' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Raleway:400,100,100italic,200,300,300italic,400italic,500,700,900' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,100,100italic,200,300,300italic,400italic,500,700,900' rel='stylesheet' type='text/css'> -->
 
-        <script defer src="https://use.fontawesome.com/releases/v5.0.4/js/all.js"></script>
+    <script defer src="https://use.fontawesome.com/releases/v5.0.4/js/all.js"></script>
 
 
-	<jdoc:include type="head" />
+    <jdoc:include type="head" />
 </head>
 <body id="page-top">
+
+<aside class="offside">
     <button id="offcanvas" type="button" class="btn btn-info fa-2x offcanvas" type="button" data-toggle="offside">
         <!--<img src="images/logo/icon_white.png" />-->
         <i class="fas fa-bars"></i>
     </button>
+    <div class="cover">
+        <a href="/"><?php echo $logo; ?></a>
+        <jdoc:include type="modules" name="sidebar" style="no" />
+    </div>
+</aside>
 
-    <div id="page-container" class="container-fluid">
+<div id="page-container">
+
+    <div class="container-fluid">
         <div class="row">
-
-            <aside class="col-6 col-md-4 col-lg-3 offside">
-                <a href="/"><?php echo $logo; ?></a>
-                <jdoc:include type="modules" name="sidebar" style="no" />
-            </aside>
 
             <div class="col-12 col-md-8 col-lg-9 main-flexbox">
 
@@ -160,19 +165,19 @@ if ($params->get('logoFile')) {
                 </header>
 
                 <?php if ($this->countModules('top')) : ?>
-                <div class="row">
-                    <div class="col">
-                        <jdoc:include type="modules" name="top" style="no" />
+                    <div class="row">
+                        <div class="col">
+                            <jdoc:include type="modules" name="top" style="no" />
+                        </div>
                     </div>
-                </div>
                 <?php endif; ?>
 
                 <!-- BODY -->
                 <main class="row">
                     <?php if ($has_left): ?>
-                    <div class="col-12 <?php echo $has_right ? "col-sm-12" : "col-sm-4"; ?> col-md-12 <?php echo $has_right ? "col-lg-12" : "col-lg-4"; ?> col-xl-3">
-                        <jdoc:include type="modules" name="left" style="no" />
-                    </div>
+                        <div class="col-12 <?php echo $has_right ? "col-sm-12" : "col-sm-4"; ?> col-md-12 <?php echo $has_right ? "col-lg-12" : "col-lg-4"; ?> col-xl-3">
+                            <jdoc:include type="modules" name="left" style="no" />
+                        </div>
                     <?php endif; ?>
                     <div class="col-12 col-sm  col-md col-lg  col-xl">
                         <jdoc:include type="modules" name="center-header" style="no" />
@@ -181,18 +186,18 @@ if ($params->get('logoFile')) {
                         <jdoc:include type="modules" name="center-footer" style="col" />
                     </div>
                     <?php if ($has_right): ?>
-                    <div class="col-12 col-sm-4  col-md-12 col-lg-4  col-xl-3">
-                        <jdoc:include type="modules" name="right" style="no" />
-                    </div>
+                        <div class="col-12 col-sm-4  col-md-12 col-lg-4  col-xl-3">
+                            <jdoc:include type="modules" name="right" style="no" />
+                        </div>
                     <?php endif; ?>
                 </main>
 
                 <?php if ($this->countModules('bottom')) : ?>
-                <div class="row">
-                    <div class="col">
-                        <jdoc:include type="modules" name="bottom" style="no" />
+                    <div class="row">
+                        <div class="col">
+                            <jdoc:include type="modules" name="bottom" style="no" />
+                        </div>
                     </div>
-                </div>
                 <?php endif; ?>
 
                 <!-- FOOTER -->
@@ -215,5 +220,6 @@ if ($params->get('logoFile')) {
             </div>
         </div>
     </div>
+</div>
 </body>
 </html>

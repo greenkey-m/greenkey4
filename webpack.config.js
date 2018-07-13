@@ -4,7 +4,7 @@ module.exports = {
     entry: ['./code/template.js', './scss/template.scss'],
     output: {
         path: path.resolve(__dirname, 'assets'),
-        filename: 'bundle.js'
+        filename: 'template.js'
     },
     module: {
         rules: [
@@ -49,6 +49,6 @@ module.exports = {
     },
     // This remove jquery code from bundle to use external CDN
     externals: {
-        jquery: 'jQuery'
+        //jquery: 'jQuery'
     }
 };

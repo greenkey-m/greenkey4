@@ -6,13 +6,13 @@ import $ from 'jquery';
 $(document).ready(function () {
 
     $("button.offcanvas").click(function (e) {
-        $(".offside").toggleClass("open");
+        $("body").toggleClass("hide");
         e.preventDefault();
         return false;
     });
 
     $(".offside").click(function (e) {
-        $(".offside").toggleClass("open");
+        $("body").toggleClass("hide");
         //e.preventDefault();
         //return false;
     });

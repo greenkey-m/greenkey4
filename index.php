@@ -137,7 +137,8 @@ if ($params->get('logoFile')) {
 <body id="page-top">
 
 <aside class="offside">
-    <button id="offcanvas" type="button" class="btn btn-info fa-2x offcanvas" type="button" data-toggle="offside">
+    <div class="sideshadow"></div>
+    <button id="offcanvas" type="button" class="offcanvas" type="button" data-toggle="offside">
         <!--<img src="images/logo/icon_white.png" />-->
         <i class="fas fa-bars"></i>
     </button>

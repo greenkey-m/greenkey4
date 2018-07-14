@@ -2,11 +2,14 @@
 @import "~bootstrap/scss/bootstrap";
 @import "../fonts/fontawesome5/scss/fontawesome";
 
-
 /* Main styles */
 
 html, body {
   height: 100%;
+}
+
+body {
+  perspective: 1000px;
 }
 
 .noop {
@@ -20,18 +23,30 @@ html, body {
   clear: both;
 }
 
-
 /* Sidebar */
 
 .offside {
-  width: 320px;
-  height: 100%;
-
   position: fixed;
 
-  background-color: #e1ffc0;
-  background-size: cover;
-  color: black;
+  top: 0;
+  left: 0;
+  width: 340px;
+  height: 100%;
+  border: 1px solid red;
+
+  overflow: auto;
+  transition: all .3s ease-in-out;
+}
+
+body.hide .offside {
+  left: -300px;
+}
+
+.offside .sideshadow {
+  position: absolute;
+  left: 0;
+  width: 300px;
+  height: 100%;
 
   -webkit-box-shadow: 0 0 10px rgba(0, 0, 0, 0.8);
   -moz-box-shadow: 0 0 10px rgba(0, 0, 0, 0.8);
@@ -39,18 +54,44 @@ html, body {
   //-webkit-box-shadow: inset 20px 0px 34px -9px rgba(0,0,0,0.75);
   //-moz-box-shadow: inset 20px 0px 34px -9px rgba(0,0,0,0.75);
   //box-shadow: inset 20px 0px 34px -9px rgba(0,0,0,0.75);}
-  overflow: auto;
 }
 
-.cover {
-  position: fixed;
-  z-index: 2;
-  width: 320px;
+.offside button.offcanvas {
+  position: absolute;
+  top: 20px;
+  left: 300px;
+
+  background: #e1ffc0;
+  border: none;
+  border-top-right-radius: 5px;
+  border-bottom-right-radius: 5px;
+  padding: 5px;
+  color: black;
+
+  cursor: pointer;
+  -webkit-box-shadow: 0 0 10px rgba(0, 0, 0, 0.8);
+  -moz-box-shadow: 0 0 10px rgba(0, 0, 0, 0.8);
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.8);
+
+  transition: all .3s linear;
+}
+
+.offside .cover {
+  position: absolute;
+  width: 300px;
   height: 100%;
   background-color: #e1ffc0;
+  background-size: cover;
+  color: black;
+  overflow: auto;
+  direction: rtl;
 }
 
-.offside .logo {
+.offside .cover * {
+  direction: ltr;
+}
+
+.offside .cover .logo {
   width: 70%;
   max-width: 400px;
 
@@ -67,55 +108,34 @@ html, body {
   height: auto;
   min-height: 100%;
 
+  transition: all .3s ease-in-out;
   //background: black;
 }
 
-button.offcanvas {
-  position: fixed;
-  top: 20px;
-  left: 310px;
-  z-index: 1;
-
-  background: #e1ffc0;
-  border-color: #e1ffc0;
-  color: black;
-
-  -webkit-box-shadow: 0 0 10px rgba(0, 0, 0, 0.8);
-  -moz-box-shadow: 0 0 10px rgba(0, 0, 0, 0.8);
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.8);
+body.hide #page-container {
+  left: 40px;
 }
-
 
 @media screen and (max-width: 767px) {
   .offside {
-    position: fixed;
-    top: 0px;
-    bottom: 0;
-    width: 300px;
-    max-width: 100%;
     left: -300px;
     z-index: 10;
-    -webkit-transition: all .25s ease-out;
-    -o-transition: all .25s ease-out;
-    transition: all .25s ease-out;
-    overflow-y: scroll;
   }
-  .offside.open {
+
+  body.hide .offside {
     left: 0px;
   }
 
-  button.offcanvas {
-    display: block;
+  #page-container {
+    left: 40px;
+    z-index: 1;
   }
-  button.offcanvas img {
-    width: 50px;
-  }
+
 }
 
-
 .nav.menu > li {
-  width : 100%;
+  width: 100%;
   padding: 10px 10px;
-  margin: 5px;
+  margin: 5px 8px;
   border: 1px solid blue;
 }

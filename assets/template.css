@@ -8915,6 +8915,10 @@ readers do not read off random characters that represent icons */
 html, body {
   height: 100%; }
 
+body {
+  -webkit-perspective: 1000px;
+          perspective: 1000px; }
+
 .noop {
   width: 100%;
   height: 300px;
@@ -8926,23 +8930,53 @@ html, body {
 
 /* Sidebar */
 .offside {
-  width: 320px;
-  height: 100%;
   position: fixed;
+  top: 0;
+  left: 0;
+  width: 340px;
+  height: 100%;
+  border: 1px solid red;
+  overflow: auto;
+  transition: all .3s ease-in-out; }
+
+body.hide .offside {
+  left: -300px; }
+
+.offside .sideshadow {
+  position: absolute;
+  left: 0;
+  width: 300px;
+  height: 100%;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.8); }
+
+.offside button.offcanvas {
+  position: absolute;
+  top: 20px;
+  left: 300px;
+  background: #e1ffc0;
+  border: none;
+  border-top-right-radius: 5px;
+  border-bottom-right-radius: 5px;
+  padding: 5px;
+  color: black;
+  cursor: pointer;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.8);
+  transition: all .3s linear; }
+
+.offside .cover {
+  position: absolute;
+  width: 300px;
+  height: 100%;
   background-color: #e1ffc0;
   background-size: cover;
   color: black;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.8);
-  overflow: auto; }
+  overflow: auto;
+  direction: rtl; }
 
-.cover {
-  position: fixed;
-  z-index: 2;
-  width: 320px;
-  height: 100%;
-  background-color: #e1ffc0; }
+.offside .cover * {
+  direction: ltr; }
 
-.offside .logo {
+.offside .cover .logo {
   width: 70%;
   max-width: 400px;
   margin-left: 15%;
@@ -8955,38 +8989,24 @@ html, body {
   right: 0;
   top: 0;
   height: auto;
-  min-height: 100%; }
+  min-height: 100%;
+  transition: all .3s ease-in-out; }
 
-button.offcanvas {
-  position: fixed;
-  top: 20px;
-  left: 310px;
-  z-index: 1;
-  background: #e1ffc0;
-  border-color: #e1ffc0;
-  color: black;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.8); }
+body.hide #page-container {
+  left: 40px; }
 
 @media screen and (max-width: 767px) {
   .offside {
-    position: fixed;
-    top: 0px;
-    bottom: 0;
-    width: 300px;
-    max-width: 100%;
     left: -300px;
-    z-index: 10;
-    transition: all .25s ease-out;
-    overflow-y: scroll; }
-  .offside.open {
+    z-index: 10; }
+  body.hide .offside {
     left: 0px; }
-  button.offcanvas {
-    display: block; }
-  button.offcanvas img {
-    width: 50px; } }
+  #page-container {
+    left: 40px;
+    z-index: 1; } }
 
 .nav.menu > li {
   width: 100%;
   padding: 10px 10px;
-  margin: 5px;
+  margin: 5px 8px;
   border: 1px solid blue; }

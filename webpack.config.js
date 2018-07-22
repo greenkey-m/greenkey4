@@ -1,10 +1,26 @@
 const path = require('path');
 
+// webpack.config.js
+const webpack = require('webpack')
+
 module.exports = {
+    plugins: [
+        new webpack.ProvidePlugin({
+            $: 'jquery',
+            '$': 'jquery',
+            jquery: 'jquery',
+            jQuery: 'jquery',
+            'window.jquery': 'jquery',
+            'window.jQuery': 'jquery',
+            'window.$': 'jquery'
+        })
+    ],
     entry: ['./code/template.js', './scss/template.scss'],
     output: {
         path: path.resolve(__dirname, 'assets'),
         filename: 'template.js'
+    },
+    resolve: {
     },
     module: {
         rules: [
@@ -47,6 +63,8 @@ module.exports = {
             }
         ]
     },
+    watch: true,
+    devtool: "source-map",
     // This remove jquery code from bundle to use external CDN
     externals: {
         //jquery: 'jQuery'

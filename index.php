@@ -17,7 +17,7 @@ JHtml::_('behavior.framework');
 use \Joomla\CMS\Factory;
 
 //JHtml::script('https://maps.googleapis.com/maps/api/js?v=3.exp&language=ru');
-//JHtml::script('https://code.jquery.com/jquery-3.3.1.min.js', null, array('integrity' => 'sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN'));
+JHtml::script('https://code.jquery.com/jquery-3.3.1.min.js', null, array('integrity' => 'sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN'));
 //JHtml::script('https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.4.1/jquery.easing.min.js');
 //JHtml::script('https://blueimp.github.io/Gallery/js/jquery.blueimp-gallery.min.js');
 //JHtml::script('https://npmcdn.com/headroom.js@0.9.4/dist/headroom.min.js');
@@ -29,8 +29,10 @@ use \Joomla\CMS\Factory;
 //JHtml::script('templates/' . $this->template . '/vendor/bootstrap4/js/bootstrap.min.js');
 //JHtml::script('https://maps.googleapis.com/maps/api/js?v=3.exp&language=ru');
 //JHtml::script('http://maps.google.com/maps/api/js?sensor=true');
-//JHtml::script('templates/' . $this->template . '/node_modules/bootstrap/dist/js/bootstrap.bundle.js');
-JHtml::script('templates/' . $this->template . '/assets/template.js');
+JHtml::script('templates/' . $this->template . '/node_modules/bootstrap/dist/js/bootstrap.bundle.js');
+JHtml::script('templates/' . $this->template . '/node_modules/jquery.mb.ytplayer/dist/jquery.mb.YTPlayer.js');
+JHtml::script('templates/' . $this->template . '/code/web.js');
+//JHtml::script('templates/' . $this->template . '/assets/template.js');
 
 //JHtml::stylesheet('../media/jui/css/chosen.css');
 //JHtml::stylesheet('https://blueimp.github.io/Gallery/css/blueimp-gallery.min.css');
@@ -133,8 +135,38 @@ if ($params->get('logoFile')) {
 
 
     <jdoc:include type="head" />
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.3.5/jquery.fancybox.min.css" />
+
 </head>
 <body id="page-top">
+<!--
+<div id="bgndVideo" class="player" data-property="{
+videoURL:'https://youtu.be/SLC1y4nAyzE',
+containment:'body',
+autoPlay:true,
+mute:true,
+startAt:0,
+opacity:1,
+quality:'highres',
+loop:true}"></div>
+<div id="bgndVideo" class="player" data-property="{
+videoURL:'https://youtu.be/wFpeM3fxJoQ',
+containment:'body',
+autoPlay:true,
+mute:true,
+startAt:30,
+stopAt:73,
+opacity:1,
+quality:'highres',
+optimizeDisplay: true,
+
+loop:true}"></div>
+-->
+
+<div id="spacebg">
+    <canvas id="c"></canvas>
+</div>
 
 <aside class="offside">
     <div class="sideshadow"></div>
@@ -221,6 +253,8 @@ if ($params->get('logoFile')) {
             </div>
         </div>
     </div>
+
 </div>
+
 </body>
 </html>

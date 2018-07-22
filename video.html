@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+
+    <link href="node_modules/jquery.mb.ytplayer/dist/css/jquery.mb.YTPlayer.min.css" media="all" rel="stylesheet" type="text/css">
+
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/3.0.0/jquery.min.js"></script>
+    <script src="node_modules/jquery.mb.ytplayer/dist/jquery.mb.YTPlayer.js"></script>
+
+    <script>
+        jQuery(function(){
+            jQuery("#bgndVideo").YTPlayer();
+        });
+    </script>
+
+</head>
+<body>
+    <div id="bgndVideo" class="player" data-property="{videoURL:'http://youtu.be/BsekcY04xvQ',containment:'body',autoPlay:true, mute:true, startAt:0, opacity:1}">My video</div>
+</body>
+</html>

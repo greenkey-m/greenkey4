@@ -70,6 +70,11 @@
                        description="JFIELD_ALT_PAGE_TITLE_LABEL"
                        filter="string" />
 
+                <field name="sitesubtitle"  type="text" default=""
+                       label="JGLOBAL_SUBTITLE"
+                       description="JFIELD_ALT_PAGE_SUBTITLE_LABEL"
+                       filter="string" />
+
                 <field name="sitedescription"  type="text" default=""
                        label="JGLOBAL_DESCRIPTION"
                        description="JGLOBAL_SUBHEADING_DESC"

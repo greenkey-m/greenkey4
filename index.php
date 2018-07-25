@@ -165,10 +165,10 @@ loop:true}"></div>
 -->
 
 <div id="spacebg">
-    <canvas id="c"></canvas>
+    <!--<canvas id="c"></canvas>
     <img id="earth" src="/templates/greenkey4/images/space/earth.png" />
         <img src="/templates/greenkey4/images/space/cloudb-01.png" alt="" class="cloud cloud1">
-        <img src="/templates/greenkey4/images/space/cloudb-02.png" alt="" class="cloud cloud2">
+        <img src="/templates/greenkey4/images/space/cloudb-02.png" alt="" class="cloud cloud2">-->
 </div>
 
 <aside class="offside">
@@ -179,6 +179,11 @@ loop:true}"></div>
     </button>
     <div class="cover">
         <a href="/"><?php echo $logo; ?></a>
+            <?php
+            if ($params->get('sitesubtitle')) {
+                echo '<div class="subtitle">'.$params->get('sitesubtitle').'</div>';
+            }
+            ?>
         <jdoc:include type="modules" name="sidebar" style="no" />
     </div>
 </aside>

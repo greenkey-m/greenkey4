@@ -7,14 +7,10 @@
   margin: 0;
   padding: 0;
   overflow: hidden;
+
   background: rgba(0,0,0,1);
-  background: -moz-linear-gradient(top, rgba(0,0,0,1) 0%, rgba(0,7,41,1) 73%, rgba(8,41,107,1) 90%, rgba(2,74,199,1) 100%);
-  background: -webkit-gradient(left top, left bottom, color-stop(0%, rgba(0,0,0,1)), color-stop(73%, rgba(0,7,41,1)), color-stop(90%, rgba(8,41,107,1)), color-stop(100%, rgba(2,74,199,1)));
-  background: -webkit-linear-gradient(top, rgba(0,0,0,1) 0%, rgba(0,7,41,1) 73%, rgba(8,41,107,1) 90%, rgba(2,74,199,1) 100%);
-  background: -o-linear-gradient(top, rgba(0,0,0,1) 0%, rgba(0,7,41,1) 73%, rgba(8,41,107,1) 90%, rgba(2,74,199,1) 100%);
-  background: -ms-linear-gradient(top, rgba(0,0,0,1) 0%, rgba(0,7,41,1) 73%, rgba(8,41,107,1) 90%, rgba(2,74,199,1) 100%);
-  background: linear-gradient(to bottom, rgba(0,0,0,1) 0%, rgba(0,7,41,1) 73%, rgba(8,41,107,1) 90%, rgba(2,74,199,1) 100%);
-  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#000000', endColorstr='#024ac7', GradientType=0 );
+  background: linear-gradient(to bottom, rgba(0,0,0,1) 0%, rgba(25,2,61,1) 35%, rgba(45,10,99,1) 59%, rgba(82,0,189,1) 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#000000', endColorstr='#5200bd', GradientType=0 );
 }
 
 canvas#c {

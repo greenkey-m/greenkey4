@@ -3,6 +3,8 @@
 @import "~bootstrap/scss/bootstrap";
 @import "../fonts/fontawesome5/scss/fontawesome";
 
+$main-color1: #7eaa21;
+
 /* Main styles */
 
 html, body {
@@ -71,7 +73,7 @@ body.hide .offside {
   border: none;
   border-top-right-radius: 5px;
   border-bottom-right-radius: 5px;
-  padding: 5px;
+  padding: 4px 8px 4px 1px;
   color: black;
 
   cursor: pointer;
@@ -105,6 +107,12 @@ body.hide .offside {
   margin-left: 20px;
   margin-top: 10px;
   /* transition: all .5s ease-in-out 0s; */
+}
+
+.offside .cover .subtitle {
+  color: $main-color1;
+  font-weight: bold;
+  margin: -10px 0 10px 25px;
 }
 
 #page-container {
@@ -151,10 +159,34 @@ body.hide #page-container {
   display: block;
 }
 
-
 .nav.menu > li {
+  display: block;
+  width: 100%;
+}
+
+.nav.menu > li > * {
+  display: block;
   width: 100%;
   padding: 10px 10px;
-  margin: 5px 8px;
-  border: 1px solid blue;
+  margin: 0px;
+  border-top: 1px solid #b35b26;
+  color: #b35b26;
+  cursor: pointer;
+  text-decoration: none;
+}
+
+.nav.menu > li.parent > *:before {
+  //font-family: "Font Awesome 5 Free";
+  //content: "\f060";
+  content: "<";
+}
+
+.nav.menu > li > *:hover {
+  background-color: #b35b26;
+  color: #FFF;
+}
+
+
+.nav.menu > li:last-child > * {
+  border-bottom: 1px solid #b35b26;
 }

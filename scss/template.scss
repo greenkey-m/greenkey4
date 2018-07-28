@@ -2,6 +2,7 @@
 @import "spacebg";
 @import "~bootstrap/scss/bootstrap";
 @import "../fonts/fontawesome5/scss/fontawesome";
+@import "../fonts/fontawesome5/scss/fa-solid";
 
 $main-color1: #7eaa21;
 
@@ -48,6 +49,7 @@ body {
 
 body.hide .offside {
   left: -300px;
+  transition: all .3s ease-in-out;
 }
 
 .offside .sideshadow {
@@ -62,6 +64,7 @@ body.hide .offside {
   //-webkit-box-shadow: inset 20px 0px 34px -9px rgba(0,0,0,0.75);
   //-moz-box-shadow: inset 20px 0px 34px -9px rgba(0,0,0,0.75);
   //box-shadow: inset 20px 0px 34px -9px rgba(0,0,0,0.75);}
+  transition: all .3s ease-in-out;
 }
 
 .offside button.offcanvas {
@@ -81,7 +84,7 @@ body.hide .offside {
   -moz-box-shadow: 0 0 10px rgba(0, 0, 0, 0.8);
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.8);
 
-  transition: all .3s linear;
+  transition: all .3s ease-in-out;
 }
 
 .offside .cover {
@@ -94,6 +97,28 @@ body.hide .offside {
   color: black;
   overflow: auto;
   direction: rtl;
+  overflow-x: hidden;
+  display: flex;
+  flex-direction:  column;
+  transition: all .3s ease-in-out;
+}
+
+.offside.inmenu {
+  width: 350px;
+}
+.offside.inmenu .sideshadow {
+  width: 310px;
+}
+.offside.inmenu button.offcanvas {
+  background-color: #a89744;
+  left: 310px;
+}
+.offside.inmenu .cover {
+  background-color: #a89744;
+  width: 310px;
+}
+.offside.inmenu > .cover > ul.nav.menu > li > span, .offside.inmenu > .cover > ul.nav.menu > li > a {
+  display: none;
 }
 
 .offside .cover * {
@@ -160,33 +185,125 @@ body.hide #page-container {
 }
 
 .nav.menu > li {
+  position: relative;
   display: block;
   width: 100%;
+  left: -100%;
+  animation: openmenu .3s .1s ease;
+  animation-fill-mode: forwards;
 }
 
-.nav.menu > li > * {
+@keyframes openmenu {
+  from {left: -100%;}
+  to {left: 0}
+}
+
+.nav.menu > li:nth-child(1) {
+  animation-delay: .1s;
+}
+.nav.menu > li:nth-child(2) {
+  animation-delay: .2s;
+}
+.nav.menu > li:nth-child(3) {
+  animation-delay: .3s;
+}
+.nav.menu > li:nth-child(4) {
+  animation-delay: .4s;
+}
+.nav.menu > li:nth-child(5) {
+  animation-delay: .5s;
+}
+.nav.menu > li:nth-child(6) {
+  animation-delay: .6s;
+}
+.nav.menu > li:nth-child(7) {
+  animation-delay: .7s;
+}
+.nav.menu > li:nth-child(8) {
+  animation-delay: .8s;
+}
+.nav.menu > li:nth-child(9) {
+  animation-delay: .9s;
+}
+
+ul.nav-child {
+  list-style-type: none;
+  padding: 180px 0 0 0;
+}
+
+.nav.menu > li > *, ul.nav-child > li > * {
   display: block;
   width: 100%;
-  padding: 10px 10px;
+  padding: 8px 8px 8px 16px;
   margin: 0px;
   border-top: 1px solid #b35b26;
   color: #b35b26;
+  background-color: #f3eab8;
   cursor: pointer;
   text-decoration: none;
+  transition: 0.2s ease-out;
 }
 
-.nav.menu > li.parent > *:before {
-  //font-family: "Font Awesome 5 Free";
-  //content: "\f060";
-  content: "<";
+.nav.menu > li.parent > span, .nav.menu > li.parent > a {
+  //font-family: FontAwesome;
+  //content: "\f104";
+  font-weight: bold;
+  position: relative;
+
+  &:before {
+    position: absolute;
+    left: 2px;
+    top: 10px;
+    font-size: 1.3rem;
+    font-weight: normal;
+    @include fa-icon;
+    @extend .fas;
+    content: fa-content($fa-var-caret-left);
+  }
 }
 
-.nav.menu > li > *:hover {
+.nav.menu > li.parent > ul {
+  position: fixed;
+  left: -290px;
+  top: 0;
+  height: 100%;
+  width: 290px;
+  z-index: 10;
+}
+
+.nav.menu > li.parent > ul.opened {
+  left: 0;
+  box-shadow: 4px 0px 8px -1px rgba(0,0,0,0.75);
+}
+
+.nav.menu > li > span:hover, .nav.menu > li > a:hover {
   background-color: #b35b26;
+  border-top: 1px solid #e88329;
   color: #FFF;
+  box-shadow: 0px 3px 7px -3px rgba(0,0,0,0.75);
 }
 
 
 .nav.menu > li:last-child > * {
   border-bottom: 1px solid #b35b26;
+}
+
+.counterblock {
+  position: relative;
+  flex: 1;
+  background-image: url(../images/flower.jpg);
+  background-position: left bottom;
+  background-repeat: no-repeat;
+  min-height: 100px;
+}
+
+.counterblock .counters {
+  position: absolute;
+  bottom: 5px;
+  left: 150px;
+}
+
+.counters img {
+  width: 80px;
+  height: 15px;
 }

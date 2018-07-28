@@ -6412,6 +6412,8 @@ a.text-dark:hover, a.text-dark:focus {
  */
 .fa,
 .fas,
+.nav.menu > li.parent > span:before,
+.nav.menu > li.parent > a:before,
 .far,
 .fal,
 .fab {
@@ -6495,6 +6497,8 @@ a.text-dark:hover, a.text-dark:focus {
 
 .fa.fa-pull-left,
 .fas.fa-pull-left,
+.nav.menu > li.parent > span.fa-pull-left:before,
+.nav.menu > li.parent > a.fa-pull-left:before,
 .far.fa-pull-left,
 .fal.fa-pull-left,
 .fab.fa-pull-left {
@@ -6502,6 +6506,8 @@ a.text-dark:hover, a.text-dark:focus {
 
 .fa.fa-pull-right,
 .fas.fa-pull-right,
+.nav.menu > li.parent > span.fa-pull-right:before,
+.nav.menu > li.parent > a.fa-pull-right:before,
 .far.fa-pull-right,
 .fal.fa-pull-right,
 .fab.fa-pull-right {
@@ -8986,6 +8992,24 @@ readers do not read off random characters that represent icons */
   position: static;
   width: auto; }
 
+/*!
+ * Font Awesome Free 5.0.4 by @fontawesome - http://fontawesome.com
+ * License - http://fontawesome.com/license (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License)
+ */
+@font-face {
+  font-family: 'Font Awesome 5 Free';
+  font-style: normal;
+  font-weight: 900;
+  src: url("../fonts/fontawesome5/webfonts/fa-solid-900.eot");
+  src: url("../fonts/fontawesome5/webfonts/fa-solid-900.eot?#iefix") format("embedded-opentype"), url("../fonts/fontawesome5/webfonts/fa-solid-900.woff2") format("woff2"), url("../fonts/fontawesome5/webfonts/fa-solid-900.woff") format("woff"), url("../fonts/fontawesome5/webfonts/fa-solid-900.ttf") format("truetype"), url("../fonts/fontawesome5/webfonts/fa-solid-900.svg#fontawesome") format("svg"); }
+
+.fa,
+.fas,
+.nav.menu > li.parent > span:before,
+.nav.menu > li.parent > a:before {
+  font-family: 'Font Awesome 5 Free';
+  font-weight: 900; }
+
 /* Main styles */
 html, body {
   height: 100%; }
@@ -9018,14 +9042,16 @@ body {
   transition: all .3s ease-in-out; }
 
 body.hide .offside {
-  left: -300px; }
+  left: -300px;
+  transition: all .3s ease-in-out; }
 
 .offside .sideshadow {
   position: absolute;
   left: 0;
   width: 300px;
   height: 100%;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.8); }
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.8);
+  transition: all .3s ease-in-out; }
 
 .offside button.offcanvas {
   position: absolute;
@@ -9039,7 +9065,7 @@ body.hide .offside {
   color: black;
   cursor: pointer;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.8);
-  transition: all .3s linear; }
+  transition: all .3s ease-in-out; }
 
 .offside .cover {
   position: absolute;
@@ -9049,7 +9075,28 @@ body.hide .offside {
   background-size: cover;
   color: black;
   overflow: auto;
-  direction: rtl; }
+  direction: rtl;
+  overflow-x: hidden;
+  display: flex;
+  flex-direction: column;
+  transition: all .3s ease-in-out; }
+
+.offside.inmenu {
+  width: 350px; }
+
+.offside.inmenu .sideshadow {
+  width: 310px; }
+
+.offside.inmenu button.offcanvas {
+  background-color: #a89744;
+  left: 310px; }
+
+.offside.inmenu .cover {
+  background-color: #a89744;
+  width: 310px; }
+
+.offside.inmenu > .cover > ul.nav.menu > li > span, .offside.inmenu > .cover > ul.nav.menu > li > a {
+  display: none; }
 
 .offside .cover * {
   direction: ltr; }
@@ -9097,25 +9144,132 @@ body.hide #page-container {
   display: block; }
 
 .nav.menu > li {
-  display: block;
-  width: 100%; }
-
-.nav.menu > li > * {
+  position: relative;
   display: block;
   width: 100%;
-  padding: 10px 10px;
+  left: -100%;
+  -webkit-animation: openmenu .3s .1s ease;
+          animation: openmenu .3s .1s ease;
+  -webkit-animation-fill-mode: forwards;
+          animation-fill-mode: forwards; }
+
+@-webkit-keyframes openmenu {
+  from {
+    left: -100%; }
+  to {
+    left: 0; } }
+
+@keyframes openmenu {
+  from {
+    left: -100%; }
+  to {
+    left: 0; } }
+
+.nav.menu > li:nth-child(1) {
+  -webkit-animation-delay: .1s;
+          animation-delay: .1s; }
+
+.nav.menu > li:nth-child(2) {
+  -webkit-animation-delay: .2s;
+          animation-delay: .2s; }
+
+.nav.menu > li:nth-child(3) {
+  -webkit-animation-delay: .3s;
+          animation-delay: .3s; }
+
+.nav.menu > li:nth-child(4) {
+  -webkit-animation-delay: .4s;
+          animation-delay: .4s; }
+
+.nav.menu > li:nth-child(5) {
+  -webkit-animation-delay: .5s;
+          animation-delay: .5s; }
+
+.nav.menu > li:nth-child(6) {
+  -webkit-animation-delay: .6s;
+          animation-delay: .6s; }
+
+.nav.menu > li:nth-child(7) {
+  -webkit-animation-delay: .7s;
+          animation-delay: .7s; }
+
+.nav.menu > li:nth-child(8) {
+  -webkit-animation-delay: .8s;
+          animation-delay: .8s; }
+
+.nav.menu > li:nth-child(9) {
+  -webkit-animation-delay: .9s;
+          animation-delay: .9s; }
+
+ul.nav-child {
+  list-style-type: none;
+  padding: 180px 0 0 0; }
+
+.nav.menu > li > *, ul.nav-child > li > * {
+  display: block;
+  width: 100%;
+  padding: 8px 8px 8px 16px;
   margin: 0px;
   border-top: 1px solid #b35b26;
   color: #b35b26;
+  background-color: #f3eab8;
   cursor: pointer;
-  text-decoration: none; }
+  text-decoration: none;
+  transition: 0.2s ease-out; }
 
-.nav.menu > li.parent > *:before {
-  content: "<"; }
+.nav.menu > li.parent > span, .nav.menu > li.parent > a {
+  font-weight: bold;
+  position: relative; }
+  .nav.menu > li.parent > span:before, .nav.menu > li.parent > a:before {
+    position: absolute;
+    left: 2px;
+    top: 10px;
+    font-size: 1.3rem;
+    font-weight: normal;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    display: inline-block;
+    font-style: normal;
+    font-variant: normal;
+    font-weight: normal;
+    line-height: 1;
+    vertical-align: -15%;
+    content: "\f0d9"; }
 
-.nav.menu > li > *:hover {
+.nav.menu > li.parent > ul {
+  position: fixed;
+  left: -290px;
+  top: 0;
+  height: 100%;
+  width: 290px;
+  z-index: 10; }
+
+.nav.menu > li.parent > ul.opened {
+  left: 0;
+  box-shadow: 4px 0px 8px -1px rgba(0, 0, 0, 0.75); }
+
+.nav.menu > li > span:hover, .nav.menu > li > a:hover {
   background-color: #b35b26;
-  color: #FFF; }
+  border-top: 1px solid #e88329;
+  color: #FFF;
+  box-shadow: 0px 3px 7px -3px rgba(0, 0, 0, 0.75); }
 
 .nav.menu > li:last-child > * {
   border-bottom: 1px solid #b35b26; }
+
+.counterblock {
+  position: relative;
+  flex: 1;
+  background-image: url(../images/flower.jpg);
+  background-position: left bottom;
+  background-repeat: no-repeat;
+  min-height: 100px; }
+
+.counterblock .counters {
+  position: absolute;
+  bottom: 5px;
+  left: 150px; }
+
+.counters img {
+  width: 80px;
+  height: 15px; }

@@ -16,8 +16,15 @@ JHtml::_('behavior.framework');
 
 use \Joomla\CMS\Factory;
 
+$app             = JFactory::getApplication();
+$doc             = JFactory::getDocument();
+$user            = JFactory::getUser();
+$this->language  = $doc->language;
+$this->direction = $doc->direction;
+
+
 //JHtml::script('https://maps.googleapis.com/maps/api/js?v=3.exp&language=ru');
-JHtml::script('https://code.jquery.com/jquery-3.3.1.min.js', null, array('integrity' => 'sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN'));
+JHtml::_('script', 'https://code.jquery.com/jquery-3.3.1.min.js', array('integrity' => 'sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN'));
 //JHtml::script('https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.4.1/jquery.easing.min.js');
 //JHtml::script('https://blueimp.github.io/Gallery/js/jquery.blueimp-gallery.min.js');
 //JHtml::script('https://npmcdn.com/headroom.js@0.9.4/dist/headroom.min.js');
@@ -29,9 +36,9 @@ JHtml::script('https://code.jquery.com/jquery-3.3.1.min.js', null, array('integr
 //JHtml::script('templates/' . $this->template . '/vendor/bootstrap4/js/bootstrap.min.js');
 //JHtml::script('https://maps.googleapis.com/maps/api/js?v=3.exp&language=ru');
 //JHtml::script('http://maps.google.com/maps/api/js?sensor=true');
-JHtml::script('templates/' . $this->template . '/node_modules/bootstrap/dist/js/bootstrap.bundle.js');
-JHtml::script('templates/' . $this->template . '/node_modules/jquery.mb.ytplayer/dist/jquery.mb.YTPlayer.js');
-JHtml::script('templates/' . $this->template . '/code/web.js');
+JHtml::_('script', 'templates/' . $this->template . '/node_modules/bootstrap/dist/js/bootstrap.bundle.js');
+//JHtml::script('templates/' . $this->template . '/node_modules/jquery.mb.ytplayer/dist/jquery.mb.YTPlayer.js');
+JHtml::_('script', 'templates/' . $this->template . '/code/web.js');
 //JHtml::script('templates/' . $this->template . '/assets/template.js');
 
 //JHtml::stylesheet('../media/jui/css/chosen.css');
@@ -39,7 +46,9 @@ JHtml::script('templates/' . $this->template . '/code/web.js');
 //JHtml::stylesheet('templates/' . $this->template . '/vendor/animate.css');
 //JHtml::stylesheet('templates/' . $this->template . '/fonts/fontawesome5/css/fontawesome.css');
 //JHtml::stylesheet('templates/' . $this->template . '/node_modules/bootstrap/css/bootstrap.min.css');
-JHtml::stylesheet('templates/' . $this->template . '/assets/template.css');
+//JHtml::stylesheet('https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.3.5/jquery.fancybox.min.css');
+
+JHtml::_('stylesheet', 'templates/' . $this->template . '/assets/template.css');
 
 // Check for a custom CSS file
 /*$userCss = JPATH_SITE . '/templates/' . $this->template . '/assets/user.css';
@@ -47,13 +56,6 @@ if (file_exists($userCss) && filesize($userCss) > 0)
 {
   JHtml::stylesheet($userCss);
 }*/
-
-
-$app             = Factory::getApplication();
-$doc             = Factory::getDocument();
-$user            = Factory::getUser();
-$this->language  = $doc->language;
-$this->direction = $doc->direction;
 
 // Output as HTML5
 $doc->setHtml5(true);
@@ -104,26 +106,30 @@ if ($params->get('logoFile')) {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <!-- Favicons -->
-    <link rel="apple-touch-icon-precomposed" sizes="57x57" href="templates/<?php echo $this->template ?>/media/favicons/apple-touch-icon-57x57.png" />
-    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="templates/<?php echo $this->template ?>/media/favicons/apple-touch-icon-114x114.png" />
-    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="templates/<?php echo $this->template ?>/media/favicons/apple-touch-icon-72x72.png" />
-    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="templates/<?php echo $this->template ?>/media/favicons/apple-touch-icon-144x144.png" />
-    <link rel="apple-touch-icon-precomposed" sizes="60x60" href="templates/<?php echo $this->template ?>/media/favicons/apple-touch-icon-60x60.png" />
-    <link rel="apple-touch-icon-precomposed" sizes="120x120" href="templates/<?php echo $this->template ?>/media/favicons/apple-touch-icon-120x120.png" />
-    <link rel="apple-touch-icon-precomposed" sizes="76x76" href="templates/<?php echo $this->template ?>/media/favicons/apple-touch-icon-76x76.png" />
-    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="templates/<?php echo $this->template ?>/media/favicons/apple-touch-icon-152x152.png" />
-    <link rel="icon" type="image/png" href="templates/<?php echo $this->template ?>/media/favicons/favicon-196x196.png" sizes="196x196" />
-    <link rel="icon" type="image/png" href="templates/<?php echo $this->template ?>/media/favicons/favicon-96x96.png" sizes="96x96" />
-    <link rel="icon" type="image/png" href="templates/<?php echo $this->template ?>/media/favicons/favicon-32x32.png" sizes="32x32" />
-    <link rel="icon" type="image/png" href="templates/<?php echo $this->template ?>/media/favicons/favicon-16x16.png" sizes="16x16" />
-    <link rel="icon" type="image/png" href="templates/<?php echo $this->template ?>/media/favicons/favicon-128.png" sizes="128x128" />
+    <link rel="shortcut icon" href="/templates/<?php echo $this->template ?>/images/favicons/favicon.ico" type="image/vnd.microsoft.icon"/>
+    <link rel="icon" href="/templates/<?php echo $this->template ?>/images/favicons/favicon.ico" type="image/x-icon"/>
+    <link rel="icon" type="image/svg+xml" href="/templates/<?php echo $this->template ?>/images/favicons/favicon.svg">
+
+    <link rel="apple-touch-icon-precomposed" sizes="57x57" href="templates/<?php echo $this->template ?>/images/favicons/apple-touch-icon-57x57.png" />
+    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="templates/<?php echo $this->template ?>/images/favicons/apple-touch-icon-114x114.png" />
+    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="templates/<?php echo $this->template ?>/images/favicons/apple-touch-icon-72x72.png" />
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="templates/<?php echo $this->template ?>/images/favicons/apple-touch-icon-144x144.png" />
+    <link rel="apple-touch-icon-precomposed" sizes="60x60" href="templates/<?php echo $this->template ?>/images/favicons/apple-touch-icon-60x60.png" />
+    <link rel="apple-touch-icon-precomposed" sizes="120x120" href="templates/<?php echo $this->template ?>/images/favicons/apple-touch-icon-120x120.png" />
+    <link rel="apple-touch-icon-precomposed" sizes="76x76" href="templates/<?php echo $this->template ?>/images/favicons/apple-touch-icon-76x76.png" />
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="templates/<?php echo $this->template ?>/images/favicons/apple-touch-icon-152x152.png" />
+    <link rel="icon" type="image/png" href="templates/<?php echo $this->template ?>/images/favicons/favicon-196x196.png" sizes="196x196" />
+    <link rel="icon" type="image/png" href="templates/<?php echo $this->template ?>/images/favicons/favicon-96x96.png" sizes="96x96" />
+    <link rel="icon" type="image/png" href="templates/<?php echo $this->template ?>/images/favicons/favicon-32x32.png" sizes="32x32" />
+    <link rel="icon" type="image/png" href="templates/<?php echo $this->template ?>/images/favicons/favicon-16x16.png" sizes="16x16" />
+    <link rel="icon" type="image/png" href="templates/<?php echo $this->template ?>/images/favicons/favicon-128.png" sizes="128x128" />
     <meta name="application-name" content="&nbsp;"/>
     <meta name="msapplication-TileColor" content="#FFFFFF" />
-    <meta name="msapplication-TileImage" content="templates/<?php echo $this->template ?>/media/favicons/mstile-144x144.png" />
-    <meta name="msapplication-square70x70logo" content="templates/<?php echo $this->template ?>/media/favicons/mstile-70x70.png" />
-    <meta name="msapplication-square150x150logo" content="templates/<?php echo $this->template ?>/media/favicons/mstile-150x150.png" />
-    <meta name="msapplication-wide310x150logo" content="templates/<?php echo $this->template ?>/media/favicons/mstile-310x150.png" />
-    <meta name="msapplication-square310x310logo" content="templates/<?php echo $this->template ?>/media/favicons/mstile-310x310.png" />
+    <meta name="msapplication-TileImage" content="templates/<?php echo $this->template ?>/images/favicons/mstile-144x144.png" />
+    <meta name="msapplication-square70x70logo" content="templates/<?php echo $this->template ?>/images/favicons/mstile-70x70.png" />
+    <meta name="msapplication-square150x150logo" content="templates/<?php echo $this->template ?>/images/favicons/mstile-150x150.png" />
+    <meta name="msapplication-wide310x150logo" content="templates/<?php echo $this->template ?>/images/favicons/mstile-310x150.png" />
+    <meta name="msapplication-square310x310logo" content="templates/<?php echo $this->template ?>/images/favicons/mstile-310x310.png" />
 
     <!-- Google Webfonts
     <link href="http://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">
@@ -131,12 +137,10 @@ if ($params->get('logoFile')) {
     <link href='http://fonts.googleapis.com/css?family=Raleway:400,100,100italic,200,300,300italic,400italic,500,700,900' rel='stylesheet' type='text/css'>
     <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,100,100italic,200,300,300italic,400italic,500,700,900' rel='stylesheet' type='text/css'> -->
 
-    <script defer src="https://use.fontawesome.com/releases/v5.0.4/js/all.js"></script>
+    <!--<script defer src="https://use.fontawesome.com/releases/v5.2.0/js/all.js" integrity="sha384-4oV5EgaV02iISL2ban6c/RmotsABqE4yZxZLcYMAdG7FAPsyHYAPpywE9PJo+Khy" crossorigin="anonymous"></script>-->
 
 
     <jdoc:include type="head" />
-
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.3.5/jquery.fancybox.min.css" />
 
 </head>
 <body id="page-top">
@@ -165,10 +169,10 @@ loop:true}"></div>
 -->
 
 <div id="spacebg">
-    <!--<canvas id="c"></canvas>
+    <canvas id="c"></canvas>
     <img id="earth" src="/templates/greenkey4/images/space/earth.png" />
         <img src="/templates/greenkey4/images/space/cloudb-01.png" alt="" class="cloud cloud1">
-        <img src="/templates/greenkey4/images/space/cloudb-02.png" alt="" class="cloud cloud2">-->
+        <img src="/templates/greenkey4/images/space/cloudb-02.png" alt="" class="cloud cloud2">
 </div>
 
 <aside class="offside">

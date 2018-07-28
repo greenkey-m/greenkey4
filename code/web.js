@@ -1,16 +1,50 @@
+var level = 1;
+
 $(document).ready(function () {
 
     $("button.offcanvas").click(function (e) {
-        $("body").toggleClass("hide");
-        e.preventDefault();
-        return false;
+        if (level > 1) {
+            e.preventDefault();
+            e.stopPropagation();
+            $(".offside .nav-child.opened").removeClass("opened");
+            $(".offside").toggleClass("inmenu");
+            level--;
+        } else {
+            $("body").toggleClass("hide");
+            e.stopPropagation();
+            return false;
+        }
     });
 
     $(".offside").click(function (e) {
-        $("body").toggleClass("hide");
-        //e.preventDefault();
-        //return false;
+        if (level > 1) {
+            e.preventDefault();
+            e.stopPropagation();
+            $(".offside .nav-child.opened").removeClass("opened");
+            $(".offside").toggleClass("inmenu");
+            level--;
+        } else {
+            $("body").toggleClass("hide");
+            e.stopPropagation();
+            return false;
+        }
     });
+
+    $(".nav.menu > li.parent > *").click(function (e) {
+        e.preventDefault();
+        e.stopPropagation();
+        $(this).siblings(".nav-child").toggleClass("opened");
+        $(".offside").toggleClass("inmenu");
+        level++;
+    });
+
+    $(".nav-child").click(function (e) {
+        e.preventDefault();
+        e.stopPropagation();
+        $(this).removeClass("opened");
+        $(".offside").removeClass("inmenu");
+        level--;
+    })
 
     //$("#bgndVideo").YTPlayer();
 

@@ -17,12 +17,13 @@ $(document).ready(function () {
     });
 
     $(".offside").click(function (e) {
+        //alert(level);
         if (level > 1) {
             e.preventDefault();
             e.stopPropagation();
             $(".offside .nav-child.opened").removeClass("opened");
             $(".offside").toggleClass("inmenu");
-            level--;
+            level = 1;
         } else {
             $("body").toggleClass("hide");
             e.stopPropagation();
@@ -30,7 +31,7 @@ $(document).ready(function () {
         }
     });
 
-    $(".nav.menu > li.parent > *").click(function (e) {
+    $(".nav.menu > li.parent > span, .nav.menu > li.parent > a").click(function (e) {
         e.preventDefault();
         e.stopPropagation();
         $(this).siblings(".nav-child").toggleClass("opened");

@@ -142,6 +142,10 @@ if ($params->get('logoFile')) {
 
     <jdoc:include type="head" />
 
+    <script >
+        var backword = "<?php echo JText::_("JPREV"); ?>";
+    </script>
+
 </head>
 <body id="page-top">
 <!--

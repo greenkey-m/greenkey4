@@ -6412,8 +6412,9 @@ a.text-dark:hover, a.text-dark:focus {
  */
 .fa,
 .fas,
-.nav.menu > li.parent > span:before,
-.nav.menu > li.parent > a:before,
+.nav.menu li.parent > span:before,
+.nav.menu li.parent > a:before,
+.nav.menu li.back > span:after,
 .far,
 .fal,
 .fab {
@@ -6497,8 +6498,9 @@ a.text-dark:hover, a.text-dark:focus {
 
 .fa.fa-pull-left,
 .fas.fa-pull-left,
-.nav.menu > li.parent > span.fa-pull-left:before,
-.nav.menu > li.parent > a.fa-pull-left:before,
+.nav.menu li.parent > span.fa-pull-left:before,
+.nav.menu li.parent > a.fa-pull-left:before,
+.nav.menu li.back > span.fa-pull-left:after,
 .far.fa-pull-left,
 .fal.fa-pull-left,
 .fab.fa-pull-left {
@@ -6506,8 +6508,9 @@ a.text-dark:hover, a.text-dark:focus {
 
 .fa.fa-pull-right,
 .fas.fa-pull-right,
-.nav.menu > li.parent > span.fa-pull-right:before,
-.nav.menu > li.parent > a.fa-pull-right:before,
+.nav.menu li.parent > span.fa-pull-right:before,
+.nav.menu li.parent > a.fa-pull-right:before,
+.nav.menu li.back > span.fa-pull-right:after,
 .far.fa-pull-right,
 .fal.fa-pull-right,
 .fab.fa-pull-right {
@@ -9005,8 +9008,9 @@ readers do not read off random characters that represent icons */
 
 .fa,
 .fas,
-.nav.menu > li.parent > span:before,
-.nav.menu > li.parent > a:before {
+.nav.menu li.parent > span:before,
+.nav.menu li.parent > a:before,
+.nav.menu li.back > span:after {
   font-family: 'Font Awesome 5 Free';
   font-weight: 900; }
 
@@ -9036,83 +9040,100 @@ body {
   position: fixed;
   top: 0;
   left: 0;
-  width: 340px;
+  width: 330px;
   height: 100%;
   overflow: auto;
   transition: all .3s ease-in-out; }
+  .offside .sideshadow {
+    position: absolute;
+    left: 0;
+    width: 300px;
+    height: 100%;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.8);
+    transition: all .3s ease-in-out; }
+  .offside button.offcanvas {
+    position: absolute;
+    top: 15px;
+    left: 300px;
+    background: #f3eab8;
+    border: none;
+    border-top-right-radius: 5px;
+    border-bottom-right-radius: 5px;
+    padding: 4px 8px 4px 1px;
+    color: black;
+    cursor: pointer;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.8);
+    transition: all .3s ease-in-out; }
+  .offside .cover {
+    position: absolute;
+    width: 300px;
+    height: 100%;
+    background-color: #f3eab8;
+    background-size: cover;
+    color: black;
+    overflow: auto;
+    direction: rtl;
+    overflow-x: hidden;
+    display: flex;
+    flex-direction: column;
+    transition: all .3s ease-in-out; }
+    .offside .cover .logo {
+      width: 220px;
+      max-width: 400px;
+      margin-left: 20px;
+      margin-top: 10px;
+      /* transition: all .5s ease-in-out 0s; */ }
+    .offside .cover .subtitle {
+      color: #7eaa21;
+      font-weight: bold;
+      margin: -10px 0 10px 25px; }
+    .offside .cover div.mod-languages {
+      position: absolute;
+      top: 40px;
+      right: 10px; }
+    .offside .cover div.mod-languages ul.lang-inline li {
+      display: block; }
+  .offside .cover * {
+    direction: ltr; }
 
 body.hide .offside {
   left: -300px;
   transition: all .3s ease-in-out; }
 
-.offside .sideshadow {
-  position: absolute;
-  left: 0;
-  width: 300px;
-  height: 100%;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.8);
-  transition: all .3s ease-in-out; }
+.offside.level2 {
+  width: 345px; }
+  .offside.level2 .sideshadow {
+    width: 315px; }
+  .offside.level2 button.offcanvas {
+    background-color: #a89744;
+    left: 315px; }
+  .offside.level2 .cover {
+    background-color: #a89744;
+    width: 315px; }
 
-.offside button.offcanvas {
-  position: absolute;
-  top: 15px;
-  left: 300px;
-  background: #f3eab8;
-  border: none;
-  border-top-right-radius: 5px;
-  border-bottom-right-radius: 5px;
-  padding: 4px 8px 4px 1px;
-  color: black;
-  cursor: pointer;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.8);
-  transition: all .3s ease-in-out; }
+.offside.level3 {
+  width: 360px; }
+  .offside.level3 .sideshadow {
+    width: 330px; }
+  .offside.level3 button.offcanvas {
+    background-color: #a89744;
+    left: 330px; }
+  .offside.level3 .cover {
+    background-color: #a89744;
+    width: 330px; }
 
-.offside .cover {
-  position: absolute;
-  width: 300px;
-  height: 100%;
-  background-color: #f3eab8;
-  background-size: cover;
-  color: black;
-  overflow: auto;
-  direction: rtl;
-  overflow-x: hidden;
-  display: flex;
-  flex-direction: column;
-  transition: all .3s ease-in-out; }
+.offside.level4 {
+  width: 375px; }
+  .offside.level4 .sideshadow {
+    width: 345px; }
+  .offside.level4 button.offcanvas {
+    background-color: #a89744;
+    left: 345px; }
+  .offside.level4 .cover {
+    background-color: #a89744;
+    width: 345px; }
 
-.offside.inmenu {
-  width: 350px; }
-
-.offside.inmenu .sideshadow {
-  width: 310px; }
-
-.offside.inmenu button.offcanvas {
-  background-color: #a89744;
-  left: 310px; }
-
-.offside.inmenu .cover {
-  background-color: #a89744;
-  width: 310px; }
-
-.offside.inmenu > .cover > ul.nav.menu > li > span, .offside.inmenu > .cover > ul.nav.menu > li > a {
-  display: none; }
-
-.offside .cover * {
-  direction: ltr; }
-
-.offside .cover .logo {
-  width: 220px;
-  max-width: 400px;
-  margin-left: 20px;
-  margin-top: 10px;
-  /* transition: all .5s ease-in-out 0s; */ }
-
-.offside .cover .subtitle {
-  color: #7eaa21;
-  font-weight: bold;
-  margin: -10px 0 10px 25px; }
-
+/* --------------------------------------------------------------------- */
 #page-container {
   position: absolute;
   overflow-y: auto;
@@ -9135,14 +9156,7 @@ body.hide #page-container {
     left: 40px;
     z-index: 1; } }
 
-.cover div.mod-languages {
-  position: absolute;
-  top: 40px;
-  right: 20px; }
-
-.cover div.mod-languages ul.lang-inline li {
-  display: block; }
-
+/* -----------------------------------------------------------------------------------------*/
 .nav.menu > li {
   position: relative;
   display: block;
@@ -9201,26 +9215,30 @@ body.hide #page-container {
   -webkit-animation-delay: .9s;
           animation-delay: .9s; }
 
-ul.nav-child {
-  list-style-type: none;
-  padding: 180px 0 0 0; }
-
-.nav.menu > li > *, ul.nav-child > li > * {
+/* -------------------------------------------------------------------------- */
+/* Navigation menu */
+.nav.menu li > span, .nav.menu li > a {
   display: block;
   width: 100%;
   padding: 8px 8px 8px 16px;
   margin: 0px;
   border-top: 1px solid #b35b26;
   color: #b35b26;
+  font-size: 1rem;
   background-color: #f3eab8;
   cursor: pointer;
   text-decoration: none;
   transition: 0.2s ease-out; }
+  .nav.menu li > span:hover, .nav.menu li > a:hover {
+    background-color: #b35b26;
+    border-top: 1px solid #e88329;
+    color: #FFF;
+    box-shadow: 0px 3px 7px -3px rgba(0, 0, 0, 0.75); }
 
-.nav.menu > li.parent > span, .nav.menu > li.parent > a {
+.nav.menu li.parent > span, .nav.menu li.parent > a {
   font-weight: bold;
   position: relative; }
-  .nav.menu > li.parent > span:before, .nav.menu > li.parent > a:before {
+  .nav.menu li.parent > span:before, .nav.menu li.parent > a:before {
     position: absolute;
     left: 2px;
     top: 10px;
@@ -9236,27 +9254,66 @@ ul.nav-child {
     vertical-align: -15%;
     content: "\f0d9"; }
 
-.nav.menu > li.parent > ul {
+.nav.menu li.back > span {
+  font-weight: bold;
+  position: relative;
+  text-align: right;
+  padding: 8px 16px 8px 16px; }
+  .nav.menu li.back > span:after {
+    position: absolute;
+    right: 2px;
+    top: 10px;
+    font-size: 1.3rem;
+    font-weight: normal;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    display: inline-block;
+    font-style: normal;
+    font-variant: normal;
+    font-weight: normal;
+    line-height: 1;
+    vertical-align: -15%;
+    content: "\f0da"; }
+
+.nav.menu ul.nav-child {
   position: fixed;
-  left: -290px;
+  left: -300px;
   top: 0;
   height: 100%;
-  width: 290px;
-  z-index: 10; }
+  width: 300px;
+  z-index: 10;
+  list-style-type: none;
+  padding: 130px 0 0 0 !important;
+  background-color: #f3eab8;
+  background-image: url(../images/menu.jpg);
+  background-position: center top;
+  background-repeat: no-repeat;
+  transition: 0.2s ease-out; }
 
-.nav.menu > li.parent > ul.opened {
+.nav.menu ul.nav-child.opened {
   left: 0;
   box-shadow: 4px 0px 8px -1px rgba(0, 0, 0, 0.75); }
 
-.nav.menu > li > span:hover, .nav.menu > li > a:hover {
-  background-color: #b35b26;
-  border-top: 1px solid #e88329;
-  color: #FFF;
-  box-shadow: 0px 3px 7px -3px rgba(0, 0, 0, 0.75); }
+.nav.menu ul.inactive {
+  background-image: none;
+  background-color: #a89744; }
 
-.nav.menu > li:last-child > * {
+.nav.menu ul.inactive.l2 {
+  width: 315px; }
+
+.nav.menu ul.inactive.l3 {
+  width: 330px; }
+
+.nav.menu ul.inactive.l4 {
+  width: 345px; }
+
+.nav.menu li:last-child > span, .nav.menu li:last-child > a {
   border-bottom: 1px solid #b35b26; }
 
+ul.inactive > li > span, ul.inactive > li > a {
+  display: none !important; }
+
+/* ------------------------------------------------------------------- */
 .counterblock {
   position: relative;
   flex: 1;
@@ -9268,7 +9325,8 @@ ul.nav-child {
 .counterblock .counters {
   position: absolute;
   bottom: 5px;
-  left: 150px; }
+  left: 150px;
+  width: 100px; }
 
 .counters img {
   width: 80px;

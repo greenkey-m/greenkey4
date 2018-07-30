@@ -2,27 +2,15 @@ var level = 1;
 
 $(document).ready(function () {
 
-    $("button.offcanvas").click(function (e) {
-        if (level > 1) {
-            e.preventDefault();
-            e.stopPropagation();
-            $(".offside .nav-child.opened").removeClass("opened");
-            $(".offside").toggleClass("inmenu");
-            level--;
-        } else {
-            $("body").toggleClass("hide");
-            e.stopPropagation();
-            return false;
-        }
-    });
+    $(".offside ul.nav-child").prepend( '<li class="back"><span>'+backword+'</span></li>');
 
-    $(".offside").click(function (e) {
-        //alert(level);
+    $(".offside button.offcanvas, .offside .cover").click(function (e) {
         if (level > 1) {
             e.preventDefault();
             e.stopPropagation();
-            $(".offside .nav-child.opened").removeClass("opened");
-            $(".offside").toggleClass("inmenu");
+            $(".offside .nav-child.opened").removeClass("opened").removeClass("l1 l2 l3 l4");
+            $(".offside").removeClass("level1 level2 level3 level4");
+            $("ul.menu.nav").removeClass("inactive").removeClass("l1 l2 l3 l4");
             level = 1;
         } else {
             $("body").toggleClass("hide");
@@ -31,21 +19,61 @@ $(document).ready(function () {
         }
     });
 
-    $(".nav.menu > li.parent > span, .nav.menu > li.parent > a").click(function (e) {
+    $(".nav.menu li.parent > span, .nav.menu li.parent > a").click(function (e) {
         e.preventDefault();
         e.stopPropagation();
-        $(this).siblings(".nav-child").toggleClass("opened");
-        $(".offside").toggleClass("inmenu");
+        // Устанавливаем настоящее меню и все, которые выше - неактивными
+        var overmenu = $(this).parents("ul");
+        overmenu.map(function (i, val) {
+            $(val).addClass("inactive").removeClass("l1 l2 l3 l4").addClass("l"+(i+2));
+        })
+        // Делаем неактивным главное меню, устанавливая уровень
+        $(".offside").removeClass("level1 level2 level3 level4").addClass("level"+(overmenu.length+1));
+
+        // Делаем активным следующее по уровню дочернее меню из данного пункта
+        $(this).siblings("ul").removeClass("inactive").removeClass("l1 l2 l3 l4").addClass("opened");
+        // Увеличиваем текущий уровень
         level++;
     });
 
-    $(".nav-child").click(function (e) {
+    $("ul.nav-child").click(function (e) {
         e.preventDefault();
         e.stopPropagation();
-        $(this).removeClass("opened");
-        $(".offside").removeClass("inmenu");
-        level--;
-    })
+        if ($(this).hasClass("inactive")) {
+            // Если неактивен, то надо сделать его активным и переключиться на него
+            $(".offside .nav-child.opened").removeClass("opened");
+            $(this).removeClass("inactive").removeClass("l1 l2 l3 l4").addClass("opened");
+            // Вычислить level, и соответственно расставить классы
+            var overmenu = $(this).parents("ul");
+            //alert(overmenu.length);
+            level = overmenu.length + 1;
+            overmenu.map(function (i, val) {
+                $(val).addClass("inactive").removeClass("l1 l2 l3 l4").addClass("l"+(i+1));
+            });
+            $(".offside").removeClass("level1 level2 level3 level4").addClass("level"+level);
+        } else {
+            // Если активен, то закрыть и перейти к предыдущему уровню
+            $(this).removeClass("opened");
+            level--;
+            if (level == 1){
+                $(".offside").removeClass("level1 level2 level3 level4");
+                $("ul.menu.nav").removeClass("inactive").removeClass("l1 l2 l3 l4");
+            } else {
+                //сделать пред уровень активным
+                // в соответствии с level сдвинуть неактивные
+                var overmenu = $(this).parents("ul");
+                overmenu.map(function (i, val) {
+                    if (i == 0) {
+                        $(val).removeClass("inactive").removeClass("l1 l2 l3 l4");
+                    } else {
+                        $(val).addClass("inactive").removeClass("l1 l2 l3 l4").addClass("l"+(i+1));
+                    }
+                });
+                $(".offside").removeClass("level1 level2 level3 level4").addClass("level"+level);
+            }
+
+        }
+    });
 
     //$("#bgndVideo").YTPlayer();
 

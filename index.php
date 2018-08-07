@@ -23,6 +23,10 @@ $this->language  = $doc->language;
 $this->direction = $doc->direction;
 
 
+$currentMenuItem = $app->getMenu()->getActive();
+$params = $currentMenuItem->params;
+$page_class = $params->get('pageclass_sfx');
+
 //JHtml::script('https://maps.googleapis.com/maps/api/js?v=3.exp&language=ru');
 JHtml::_('script', 'https://code.jquery.com/jquery-3.3.1.min.js', array('integrity' => 'sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN'));
 //JHtml::script('https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.4.1/jquery.easing.min.js');
@@ -147,7 +151,7 @@ if ($params->get('logoFile')) {
     </script>
 
 </head>
-<body id="page-top">
+<body id="page-top" class="<?php echo $page_class; ?>">
 <!--
 <div id="bgndVideo" class="player" data-property="{
 videoURL:'https://youtu.be/SLC1y4nAyzE',
@@ -201,7 +205,7 @@ loop:true}"></div>
     <div class="container-fluid">
         <div class="row">
 
-            <div class="col-12 col-md-8 col-lg-9 main-flexbox">
+            <div class="col-12 main-flexbox">
 
                 <!-- HEADER -->
                 <header class="row">

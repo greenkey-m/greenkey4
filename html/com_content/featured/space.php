@@ -43,7 +43,6 @@ if (!empty($this->intro_items)) : ?>
 
             ?>
             <div class="container category_wall cw<?php echo $i; ?>">
-                <div class="backpane"></div>
                 <div class="row">
                     <div class="col-12">
                         <h2><?php echo $tagname[0]; ?></h2>
@@ -57,7 +56,7 @@ if (!empty($this->intro_items)) : ?>
 
                                 ?>
                                 <div id="fly<?php echo $i . "-" . $key; ?>"
-                                     class="col-6 col-sm-6 col-lg-6 col-xl-4 fly">
+                                     class="col-12 col-sm-6 col-lg-6 col-xl-4 fly">
                                     <?php
                                     $this->item = &$item;
                                     echo $this->loadTemplate('fly');
@@ -70,6 +69,8 @@ if (!empty($this->intro_items)) : ?>
                     endforeach; ?>
 
                 </div>
+                <div class="backpane"></div>
+
             </div>
             <?php
             $i++;

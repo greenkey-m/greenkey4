@@ -86,6 +86,9 @@ $(document).ready(function () {
         }
     });
 
+
+
+
     var bwidth = $(window).width();
     var bheight = $(window).height();
 
@@ -101,7 +104,7 @@ $(document).ready(function () {
 
     //$("#bgndVideo").YTPlayer();
 
-    (function create_sky() {
+    /*(function create_sky() {
         let x = c.getContext("2d"),
             w = window.innerWidth,
             h = window.innerHeight,
@@ -137,6 +140,6 @@ $(document).ready(function () {
         window.addEventListener("resize", () => {
             create_sky();
         })
-    })();
+    })();*/
 });
 

@@ -16,10 +16,10 @@ JHtml::_('behavior.framework');
 
 use \Joomla\CMS\Factory;
 
-$app             = JFactory::getApplication();
-$doc             = JFactory::getDocument();
-$user            = JFactory::getUser();
-$this->language  = $doc->language;
+$app = JFactory::getApplication();
+$doc = JFactory::getDocument();
+$user = JFactory::getUser();
+$this->language = $doc->language;
 $this->direction = $doc->direction;
 
 
@@ -70,11 +70,11 @@ $sitename = $app->get('sitename');
 $params = $app->getTemplate(true)->params;
 
 // Detecting Active Variables
-$option   = $app->input->getCmd('option', '');
-$view     = $app->input->getCmd('view', '');
-$layout   = $app->input->getCmd('layout', '');
-$task     = $app->input->getCmd('task', '');
-$itemid   = $app->input->getCmd('Itemid', '');
+$option = $app->input->getCmd('option', '');
+$view = $app->input->getCmd('view', '');
+$layout = $app->input->getCmd('layout', '');
+$task = $app->input->getCmd('task', '');
+$itemid = $app->input->getCmd('Itemid', '');
 
 // Check for modules in position, to correct grid
 $has_left = ($this->countModules('left'));
@@ -99,7 +99,6 @@ if ($params->get('logoFile')) {
 }
 
 
-
 ?>
 
 <!DOCTYPE html>
@@ -109,31 +108,52 @@ if ($params->get('logoFile')) {
     <!-- Mobile Metas -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+
     <!-- Favicons -->
-    <link rel="shortcut icon" href="/templates/<?php echo $this->template ?>/images/favicons/favicon.ico" type="image/vnd.microsoft.icon"/>
+    <link rel="shortcut icon" href="/templates/<?php echo $this->template ?>/images/favicons/favicon.ico"
+          type="image/vnd.microsoft.icon"/>
     <link rel="icon" href="/templates/<?php echo $this->template ?>/images/favicons/favicon.ico" type="image/x-icon"/>
     <link rel="icon" type="image/svg+xml" href="/templates/<?php echo $this->template ?>/images/favicons/favicon.svg">
 
-    <link rel="apple-touch-icon-precomposed" sizes="57x57" href="templates/<?php echo $this->template ?>/images/favicons/apple-touch-icon-57x57.png" />
-    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="templates/<?php echo $this->template ?>/images/favicons/apple-touch-icon-114x114.png" />
-    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="templates/<?php echo $this->template ?>/images/favicons/apple-touch-icon-72x72.png" />
-    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="templates/<?php echo $this->template ?>/images/favicons/apple-touch-icon-144x144.png" />
-    <link rel="apple-touch-icon-precomposed" sizes="60x60" href="templates/<?php echo $this->template ?>/images/favicons/apple-touch-icon-60x60.png" />
-    <link rel="apple-touch-icon-precomposed" sizes="120x120" href="templates/<?php echo $this->template ?>/images/favicons/apple-touch-icon-120x120.png" />
-    <link rel="apple-touch-icon-precomposed" sizes="76x76" href="templates/<?php echo $this->template ?>/images/favicons/apple-touch-icon-76x76.png" />
-    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="templates/<?php echo $this->template ?>/images/favicons/apple-touch-icon-152x152.png" />
-    <link rel="icon" type="image/png" href="templates/<?php echo $this->template ?>/images/favicons/favicon-196x196.png" sizes="196x196" />
-    <link rel="icon" type="image/png" href="templates/<?php echo $this->template ?>/images/favicons/favicon-96x96.png" sizes="96x96" />
-    <link rel="icon" type="image/png" href="templates/<?php echo $this->template ?>/images/favicons/favicon-32x32.png" sizes="32x32" />
-    <link rel="icon" type="image/png" href="templates/<?php echo $this->template ?>/images/favicons/favicon-16x16.png" sizes="16x16" />
-    <link rel="icon" type="image/png" href="templates/<?php echo $this->template ?>/images/favicons/favicon-128.png" sizes="128x128" />
+    <link rel="apple-touch-icon-precomposed" sizes="57x57"
+          href="templates/<?php echo $this->template ?>/images/favicons/apple-touch-icon-57x57.png"/>
+    <link rel="apple-touch-icon-precomposed" sizes="114x114"
+          href="templates/<?php echo $this->template ?>/images/favicons/apple-touch-icon-114x114.png"/>
+    <link rel="apple-touch-icon-precomposed" sizes="72x72"
+          href="templates/<?php echo $this->template ?>/images/favicons/apple-touch-icon-72x72.png"/>
+    <link rel="apple-touch-icon-precomposed" sizes="144x144"
+          href="templates/<?php echo $this->template ?>/images/favicons/apple-touch-icon-144x144.png"/>
+    <link rel="apple-touch-icon-precomposed" sizes="60x60"
+          href="templates/<?php echo $this->template ?>/images/favicons/apple-touch-icon-60x60.png"/>
+    <link rel="apple-touch-icon-precomposed" sizes="120x120"
+          href="templates/<?php echo $this->template ?>/images/favicons/apple-touch-icon-120x120.png"/>
+    <link rel="apple-touch-icon-precomposed" sizes="76x76"
+          href="templates/<?php echo $this->template ?>/images/favicons/apple-touch-icon-76x76.png"/>
+    <link rel="apple-touch-icon-precomposed" sizes="152x152"
+          href="templates/<?php echo $this->template ?>/images/favicons/apple-touch-icon-152x152.png"/>
+    <link rel="icon" type="image/png" href="templates/<?php echo $this->template ?>/images/favicons/favicon-196x196.png"
+          sizes="196x196"/>
+    <link rel="icon" type="image/png" href="templates/<?php echo $this->template ?>/images/favicons/favicon-96x96.png"
+          sizes="96x96"/>
+    <link rel="icon" type="image/png" href="templates/<?php echo $this->template ?>/images/favicons/favicon-32x32.png"
+          sizes="32x32"/>
+    <link rel="icon" type="image/png" href="templates/<?php echo $this->template ?>/images/favicons/favicon-16x16.png"
+          sizes="16x16"/>
+    <link rel="icon" type="image/png" href="templates/<?php echo $this->template ?>/images/favicons/favicon-128.png"
+          sizes="128x128"/>
     <meta name="application-name" content="&nbsp;"/>
-    <meta name="msapplication-TileColor" content="#FFFFFF" />
-    <meta name="msapplication-TileImage" content="templates/<?php echo $this->template ?>/images/favicons/mstile-144x144.png" />
-    <meta name="msapplication-square70x70logo" content="templates/<?php echo $this->template ?>/images/favicons/mstile-70x70.png" />
-    <meta name="msapplication-square150x150logo" content="templates/<?php echo $this->template ?>/images/favicons/mstile-150x150.png" />
-    <meta name="msapplication-wide310x150logo" content="templates/<?php echo $this->template ?>/images/favicons/mstile-310x150.png" />
-    <meta name="msapplication-square310x310logo" content="templates/<?php echo $this->template ?>/images/favicons/mstile-310x310.png" />
+    <meta name="msapplication-TileColor" content="#FFFFFF"/>
+    <meta name="msapplication-TileImage"
+          content="templates/<?php echo $this->template ?>/images/favicons/mstile-144x144.png"/>
+    <meta name="msapplication-square70x70logo"
+          content="templates/<?php echo $this->template ?>/images/favicons/mstile-70x70.png"/>
+    <meta name="msapplication-square150x150logo"
+          content="templates/<?php echo $this->template ?>/images/favicons/mstile-150x150.png"/>
+    <meta name="msapplication-wide310x150logo"
+          content="templates/<?php echo $this->template ?>/images/favicons/mstile-310x150.png"/>
+    <meta name="msapplication-square310x310logo"
+          content="templates/<?php echo $this->template ?>/images/favicons/mstile-310x310.png"/>
 
     <!-- Google Webfonts
     <link href="http://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">
@@ -144,9 +164,9 @@ if ($params->get('logoFile')) {
     <!--<script defer src="https://use.fontawesome.com/releases/v5.2.0/js/all.js" integrity="sha384-4oV5EgaV02iISL2ban6c/RmotsABqE4yZxZLcYMAdG7FAPsyHYAPpywE9PJo+Khy" crossorigin="anonymous"></script>-->
 
 
-    <jdoc:include type="head" />
+    <jdoc:include type="head"/>
 
-    <script >
+    <script>
         var backword = "<?php echo JText::_("JPREV"); ?>";
     </script>
 
@@ -178,9 +198,9 @@ loop:true}"></div>
 
 <div id="spacebg">
     <canvas id="c"></canvas>
-    <img id="earth" src="/templates/greenkey4/images/space/earth.png" />
-        <img src="/templates/greenkey4/images/space/cloudb-01.png" alt="" class="cloud cloud1">
-        <img src="/templates/greenkey4/images/space/cloudb-02.png" alt="" class="cloud cloud2">
+    <img id="earth" src="/templates/greenkey4/images/space/earth.png"/>
+    <img src="/templates/greenkey4/images/space/cloudb-01.png" alt="" class="cloud cloud1">
+    <img src="/templates/greenkey4/images/space/cloudb-02.png" alt="" class="cloud cloud2">
 </div>
 
 <aside class="offside">
@@ -191,12 +211,12 @@ loop:true}"></div>
     </button>
     <div class="cover">
         <a href="/"><?php echo $logo; ?></a>
-            <?php
-            if ($params->get('sitesubtitle')) {
-                echo '<div class="subtitle">'.$params->get('sitesubtitle').'</div>';
-            }
-            ?>
-        <jdoc:include type="modules" name="sidebar" style="no" />
+        <?php
+        if ($params->get('sitesubtitle')) {
+            echo '<div class="subtitle">' . $params->get('sitesubtitle') . '</div>';
+        }
+        ?>
+        <jdoc:include type="modules" name="sidebar" style="no"/>
     </div>
 </aside>
 
@@ -210,17 +230,17 @@ loop:true}"></div>
                 <!-- HEADER -->
                 <header class="row">
                     <div class="col-1 col-sm-4">
-                        <jdoc:include type="modules" name="sub-header-1" style="no" />
+                        <jdoc:include type="modules" name="sub-header-1" style="no"/>
                     </div>
                     <div class="col-11 col-sm-8">
-                        <jdoc:include type="modules" name="sub-header-2" style="no" />
+                        <jdoc:include type="modules" name="sub-header-2" style="no"/>
                     </div>
                 </header>
 
                 <?php if ($this->countModules('top')) : ?>
                     <div class="row">
                         <div class="col">
-                            <jdoc:include type="modules" name="top" style="no" />
+                            <jdoc:include type="modules" name="top" style="no"/>
                         </div>
                     </div>
                 <?php endif; ?>
@@ -229,18 +249,18 @@ loop:true}"></div>
                 <main class="row">
                     <?php if ($has_left): ?>
                         <div class="col-12 <?php echo $has_right ? "col-sm-12" : "col-sm-4"; ?> col-md-12 <?php echo $has_right ? "col-lg-12" : "col-lg-4"; ?> col-xl-3">
-                            <jdoc:include type="modules" name="left" style="no" />
+                            <jdoc:include type="modules" name="left" style="no"/>
                         </div>
                     <?php endif; ?>
                     <div class="col-12 col-sm  col-md col-lg  col-xl">
-                        <jdoc:include type="modules" name="center-header" style="no" />
-                        <jdoc:include type="message" />
-                        <jdoc:include type="component" />
-                        <jdoc:include type="modules" name="center-footer" style="col" />
+                        <jdoc:include type="modules" name="center-header" style="no"/>
+                        <jdoc:include type="message"/>
+                        <jdoc:include type="component"/>
+                        <jdoc:include type="modules" name="center-footer" style="col"/>
                     </div>
                     <?php if ($has_right): ?>
                         <div class="col-12 col-sm-4  col-md-12 col-lg-4  col-xl-3">
-                            <jdoc:include type="modules" name="right" style="no" />
+                            <jdoc:include type="modules" name="right" style="no"/>
                         </div>
                     <?php endif; ?>
                 </main>
@@ -248,7 +268,7 @@ loop:true}"></div>
                 <?php if ($this->countModules('bottom')) : ?>
                     <div class="row">
                         <div class="col">
-                            <jdoc:include type="modules" name="bottom" style="no" />
+                            <jdoc:include type="modules" name="bottom" style="no"/>
                         </div>
                     </div>
                 <?php endif; ?>
@@ -256,16 +276,16 @@ loop:true}"></div>
                 <!-- FOOTER -->
                 <footer class="row">
                     <div class="col-12 col-sm-6 col-lg-6 col-xl-3">
-                        <jdoc:include type="modules" name="sub-footer-1" style="html5" />
+                        <jdoc:include type="modules" name="sub-footer-1" style="html5"/>
                     </div>
                     <div class="col-12 col-sm-6 col-lg-6 col-xl-3">
-                        <jdoc:include type="modules" name="sub-footer-2" style="html5" />
+                        <jdoc:include type="modules" name="sub-footer-2" style="html5"/>
                     </div>
                     <div class="col-12 col-sm-6 col-lg-6 col-xl-3">
-                        <jdoc:include type="modules" name="sub-footer-3" style="html5" />
+                        <jdoc:include type="modules" name="sub-footer-3" style="html5"/>
                     </div>
                     <div class="col-12 col-sm-6 col-lg-6 col-xl-3">
-                        <jdoc:include type="modules" name="sub-footer-4" style="html5" />
+                        <jdoc:include type="modules" name="sub-footer-4" style="html5"/>
                     </div>
                 </footer>
 

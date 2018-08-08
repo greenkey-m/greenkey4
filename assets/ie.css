@@ -1,0 +1,6 @@
+.category_wall .fly:hover a img {
+    opacity: 0;
+    -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=20)";
+    filter: alpha(opacity=20);
+
+}

@@ -196,6 +196,17 @@ optimizeDisplay: true,
 loop:true}"></div>
 -->
 
+<div class="videobg">
+    <video controls poster="/bitrix/templates/bitrix24/themes/light/video-star-sky/star-sky-poster.jpg" autoplay loop>
+        <source src="//video.1c-bitrix.ru/bitrix24/themes/video-star-sky/star-sky3.mp4" type="video/mp4"><!-- MP4 для Safari, IE9, iPhone, iPad, Android, и Windows Phone 7 -->
+        <source src="//video.1c-bitrix.ru/bitrix24/themes/video-star-sky/star-sky3.webm" type="video/webm"><!-- WebM/VP8 для Firefox4, Opera, и Chrome -->
+    </video>
+</div>
+
+<div class="navigation">
+
+</div>
+
 <aside class="offside">
     <div class="sideshadow"></div>
     <button id="offcanvas" type="button" class="offcanvas" type="button" data-toggle="offside">

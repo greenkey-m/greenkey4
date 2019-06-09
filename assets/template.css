@@ -9058,51 +9058,33 @@ html, body {
   float: none;
   clear: both; }
 
-@-webkit-keyframes flash {
-  0% {
-    opacity: 1; }
-  100% {
-    opacity: 0; } }
-
-@keyframes flash {
-  0% {
-    opacity: 1; }
-  100% {
-    opacity: 0; } }
-
-#matrix {
-  position: absolute;
+/* Video background */
+.videobg {
+  position: fixed;
   left: 0;
   top: 0;
   width: 100%;
   height: 100%;
-  font-family: icomoon;
-  font-size: 10px;
-  color: #fffabd;
-  text-shadow: #ff331e 0 0 10px, #ff331e 0 0 5px,#ff331e 0 0 2px;
-  white-space: normal;
-  word-wrap: break-word;
-  overflow: hidden; }
-  #matrix .line {
-    position: absolute;
-    left: 400px;
-    top: 0;
-    width: 10px;
-    height: 100%;
-    margin: 0;
-    padding: 0;
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start; }
-    #matrix .line p {
-      margin: 0;
-      padding: 0;
-      opacity: 0; }
-      #matrix .line p.lighton {
-        -webkit-animation-name: flash;
-                animation-name: flash;
-        -webkit-animation-duration: 2s;
-                animation-duration: 2s; }
+  background: transparent; }
+
+.videobg video {
+  width: auto;
+  height: auto;
+  position: absolute;
+  top: 0;
+  left: 0;
+  min-width: 100%;
+  min-height: 100%; }
+
+/* Navigation */
+.navigation {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 30px;
+  background: #FFF;
+  z-index: 200; }
 
 /* Sidebar */
 .offside {
@@ -9110,7 +9092,8 @@ html, body {
   top: 0;
   left: 0;
   width: 330px;
-  height: 100%;
+  bottom: 0;
+  z-index: 300;
   overflow: hidden;
   transition: all .3s ease-in-out; }
   .offside .sideshadow {
@@ -9208,11 +9191,12 @@ body.hide .offside {
 /* --------------------------------------------------------------------- */
 #page-container {
   position: absolute;
+  z-index: 100;
   overflow-y: auto;
   left: 330px;
   right: 0;
-  top: 0;
-  height: 100%;
+  top: 30px;
+  bottom: 0px;
   transition: all .3s ease-in-out; }
 
 body.hide #page-container {
@@ -9772,7 +9756,7 @@ ul.inactive > li > span, ul.inactive > li > a {
   max-width: 1200px;
   margin: .5rem 0;
   padding: .5rem;
-  background-color: rgba(255, 255, 255, 0.5); }
+  background-color: rgba(255, 255, 255, 0.7); }
   .item-page .page-header {
     margin-bottom: 1rem; }
   .item-page .page-header h2 {

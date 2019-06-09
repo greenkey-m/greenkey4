@@ -136,7 +136,7 @@ $(document).ready(function () {
     var bwidth = $(window).width();
     var bheight = $(window).height();
 
-    $(".fly_container").height(bheight - 2);
+    $(".fly_container").height(bheight - 32);
 
     //$("#bgndVideo").YTPlayer();
 

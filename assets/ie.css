@@ -4,3 +4,8 @@
     filter: alpha(opacity=20);
 
 }
+
+canvas#c {
+    position: absolute;
+
+}

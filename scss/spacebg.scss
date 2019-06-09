@@ -8,16 +8,33 @@
   padding: 0;
   overflow: hidden;
 
+  background: rgba(173,237,255,1);
+  background: linear-gradient(to bottom, rgba(173,237,255,1) 0%, rgba(232,249,255,1) 16%, rgba(255,255,255,1) 64%, rgba(255,255,255,1) 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#adedff', endColorstr='#ffffff', GradientType=0 );
+
+  //background: rgba(250,249,240,1);
+  //background: linear-gradient(to bottom, rgba(250,249,240,1) 0%, rgba(255,255,255,1) 70%, rgba(250,229,125,1) 100%);
+  //filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#faf9f0', endColorstr='#fae57d', GradientType=0 );
+}
+
+body.night #spacebg {
   background: rgba(0,0,0,1);
   background: linear-gradient(to bottom, rgba(0,0,0,1) 0%, rgba(25,2,61,1) 35%, rgba(45,10,99,1) 59%, rgba(82,0,189,1) 100%);
   filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#000000', endColorstr='#5200bd', GradientType=0 );
 }
 
+body.day #spacebg {
+  background: rgba(0,0,0,1);
+  background: linear-gradient(to bottom, rgba(0,0,0,1) 0%, rgba(25,2,61,1) 35%, rgba(45,10,99,1) 59%, rgba(82,0,189,1) 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#000000', endColorstr='#5200bd', GradientType=0 );
+}
+
+
 canvas#c {
   position: absolute;
-  -webkit-animation:spin 1000s linear infinite;
-  -moz-animation:spin 1000s linear infinite;
-  animation:spin 1000s linear infinite;
+  -webkit-animation: spin 1000s linear infinite;
+  -moz-animation: spin 1000s linear infinite;
+  animation: spin 1000s linear infinite;
 }
 
 @-moz-keyframes spin { 100% { -moz-transform: rotate(360deg); } }
@@ -96,3 +113,4 @@ img.cloud {
   -moz-animation: animCloud 80s infinite linear;
   animation: animCloud 80s infinite linear
 }
+

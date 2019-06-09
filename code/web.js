@@ -2,6 +2,25 @@ var level = 1;
 
 $(document).ready(function () {
 
+    var popupCenter = function (url, title, w, h) {
+        // Fixes dual-screen position                         Most browsers      Firefox
+        var dualScreenLeft = window.screenLeft !== undefined ? window.screenLeft : screen.left;
+        var dualScreenTop = window.screenTop !== undefined ? window.screenTop : screen.top;
+
+        var width = window.innerWidth ? window.innerWidth : document.documentElement.clientWidth ? document.documentElement.clientWidth : screen.width;
+        var height = window.innerHeight ? window.innerHeight : document.documentElement.clientHeight ? document.documentElement.clientHeight : screen.height;
+
+        var left = ((width / 2) - (w / 2)) + dualScreenLeft;
+        var top = ((height / 3) - (h / 3)) + dualScreenTop;
+
+        var newWindow = window.open(url, title, 'scrollbars=yes, width=' + w + ', height=' + h + ', top=' + top + ', left=' + left);
+
+        // Puts focus on the newWindow
+        if (newWindow && newWindow.focus) {
+            newWindow.focus();
+        }
+    };
+
     $(".offside ul.nav-child").prepend('<li class="back"><span>' + backword + '</span></li>');
 
     $(".offside button.offcanvas").click(function (e) {
@@ -87,59 +106,48 @@ $(document).ready(function () {
     });
 
 
+    $(".category_wall a.closeme").click(function () {
+        $(this).parent().removeClass("normal");
+    });
+    $(".category_wall").mouseleave(function () {
+        $(this).addClass("normal");
+    });
 
+    $(".hopen").hover(function () {
+        $(this).addClass("show");
+        $(this).children(".dropdown-menu").addClass("show");
+        $(this).children("button").attr("aria-expanded", true);
+    }, function () {
+        $(this).removeClass("show");
+        $(this).children(".dropdown-menu").removeClass("show");
+        $(this).children("button").attr("aria-expanded", false);
+    });
+
+    $(".sharepopup").click(function (e) {
+        e.preventDefault();
+        var self = $(this);
+        popupCenter(self.attr('href'), "test", 580, 470);
+    })
+
+
+    var wimg = $(".item-page .item-image img").parents(".maindata").width() - 30;
+    $(".item-page .item-image img").css("width", wimg);
 
     var bwidth = $(window).width();
     var bheight = $(window).height();
 
     $(".fly_container").height(bheight - 2);
 
-    var flies = $(".fly");
-    flies.map(function (i, f) {
-        //$(f).css({'transform': 'rotateX(' + (Math.random() * 30 - 15) + 'deg) rotateY(' + (Math.random() * 30 - 15) + 'deg) rotateZ(' + (Math.random() * 30 - 15) + 'deg)'});
-        //$(f).css({'transform': 'rotateX(30deg) rotateZ(' + (Math.random() * 30 - 15) + 'deg)'});
-        //$(f).css({'left': ((Math.random() * (bwidth - 700)) + 300) + 'px'});
-        //$(f).css({'top': Math.random() * (bheight - 300) + 'px'});
-    });
-
     //$("#bgndVideo").YTPlayer();
 
-    /*(function create_sky() {
-        let x = c.getContext("2d"),
-            w = window.innerWidth,
-            h = window.innerHeight,
-            canv = Math.ceil(2 * Math.sqrt(w ** 2 + h ** 2)),
-            px = -canv,
-            py = h - canv,
-            maxr = Math.max(w, h) * 2,
-            random = n => Math.floor(Math.random() * n);
+    $(window).resize(function () {
+        $(".fly_container").height($(window).height() - 2);
+    });
 
-        $('#c').css("left", px);
-        $('#c').css("top", py);
-        $('#c').css("width", 2 * canv);
-        $('#c').css("height", 2 * canv);
-        c.width = 2 * canv;
-        c.height = 2 * canv;
+    // Вернуться к варианту jquery? и переписать анонимную функцию, т.к. она не доступна по имени вне себя
+    window.addEventListener("resize", function () {
+        //create_sky()
+    });
 
-        let milky = new Image();
-        milky.src = '/templates/greenkey4/images/space/milkyway.png';
-        milky.onload = function () {
-            x.drawImage(milky, canv - 300, canv - 2000, 600, 2000);
-            x.drawImage(milky, canv - 300, canv, 600, 2000);
-        }
-
-        x.fillStyle = "rgba(0,0,100,0)";
-        x.fillRect(0, 0, 2 * canv, 2 * canv);
-        for (i = 1; i < canv * 50; i++) {
-            x.beginPath();
-            x.arc(random(2 * canv), random(2 * canv), 1 + random(1), 0, 2 * Math.PI, false);
-            x.fillStyle = "rgba(" + (216 + random(30)) + "," + (216 + random(3)) + "," + (216 + random(30)) + "," + Math.random() + ")";
-            x.fill();
-        }
-
-        window.addEventListener("resize", () => {
-            create_sky();
-        })
-    })();*/
 });
 

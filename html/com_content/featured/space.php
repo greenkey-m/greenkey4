@@ -42,7 +42,7 @@ if (!empty($this->intro_items)) : ?>
             $tagname = $tags->getTagNames([$id]);
 
             ?>
-            <div class="container category_wall cw<?php echo $i; ?>">
+            <div class="container category_wall normal cw<?php echo $i; ?>">
                 <div class="row">
                     <div class="col-12">
                         <h2><?php echo $tagname[0]; ?></h2>
@@ -69,6 +69,7 @@ if (!empty($this->intro_items)) : ?>
                     endforeach; ?>
 
                 </div>
+                <a class="closeme"><i class="fas fa-times"></i></a>
                 <div class="backpane"></div>
 
             </div>

@@ -196,13 +196,6 @@ optimizeDisplay: true,
 loop:true}"></div>
 -->
 
-<div id="spacebg">
-    <canvas id="c"></canvas>
-    <img id="earth" src="/templates/greenkey4/images/space/earth.png"/>
-    <img src="/templates/greenkey4/images/space/cloudb-01.png" alt="" class="cloud cloud1">
-    <img src="/templates/greenkey4/images/space/cloudb-02.png" alt="" class="cloud cloud2">
-</div>
-
 <aside class="offside">
     <div class="sideshadow"></div>
     <button id="offcanvas" type="button" class="offcanvas" type="button" data-toggle="offside">

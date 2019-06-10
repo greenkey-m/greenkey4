@@ -17,15 +17,11 @@ JHtml::_('behavior.framework');
 use \Joomla\CMS\Factory;
 
 $app = JFactory::getApplication();
-$doc = JFactory::getDocument();
 $user = JFactory::getUser();
-$this->language = $doc->language;
-$this->direction = $doc->direction;
 
 
-$currentMenuItem = $app->getMenu()->getActive();
-$params = $currentMenuItem->params;
-$page_class = $params->get('pageclass_sfx');
+//$currentMenuItem = $app->getMenu()->getActive();
+//$params = $currentMenuItem->params;
 
 //JHtml::script('https://maps.googleapis.com/maps/api/js?v=3.exp&language=ru');
 JHtml::_('script', 'https://code.jquery.com/jquery-3.3.1.min.js', array('integrity' => 'sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN'));
@@ -62,12 +58,14 @@ if (file_exists($userCss) && filesize($userCss) > 0)
 }*/
 
 // Output as HTML5
-$doc->setHtml5(true);
+$this->setHtml5(true);
 
 $sitename = $app->get('sitename');
 
 // Getting params from template
 $params = $app->getTemplate(true)->params;
+
+$page_class = $params->get('pageclass_sfx');
 
 // Detecting Active Variables
 $option = $app->input->getCmd('option', '');
@@ -204,7 +202,16 @@ loop:true}"></div>
 </div>
 
 <div class="navigation">
-
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-xs-12 col-sm-8 col-md-8 col-lg-6">
+                <jdoc:include type="modules" name="navigation" style="no"/>
+            </div>
+            <div class="col-xs-12 col-sm-4 col-md-4 col-lg-6">
+                <jdoc:include type="modules" name="search" style="no"/>
+            </div>
+        </div>
+    </div>
 </div>
 
 <aside class="offside">

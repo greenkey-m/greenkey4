@@ -10,28 +10,33 @@
 
 defined('_JEXEC') or die;
 
-use \Joomla\CMS\Factory;
+/** @var JDocumentHtml $this */
 
-$app             = Factory::getApplication();
-$doc             = Factory::getDocument();
-$this->language  = $doc->language;
-$this->direction = $doc->direction;
+$app = JFactory::getApplication();
 
 // Output as HTML5
-$doc->setHtml5(true);
+$this->setHtml5(true);
+
+// Add JavaScript Frameworks
+JHtml::_('bootstrap.framework');
+
+// Add html5 shiv
+JHtml::_('script', 'jui/html5.js', array('version' => 'auto', 'relative' => true, 'conditional' => 'lt IE 9'));
 
 // Add Stylesheets
-$doc->addStyleSheetVersion($this->baseurl . '/templates/' . $this->template . '/assets/template.css', array('version' => 'auto'));
+JHtml::_('stylesheet', $this->baseurl . '/templates/' . $this->template . '/assets/template.css', array('version' => 'auto'), array('version' => 'auto', 'relative' => true));
 
+// Load optional rtl Bootstrap css and Bootstrap bugfixes
+JHtmlBootstrap::loadCss($includeMaincss = false, $this->direction);
 ?>
 <!DOCTYPE html>
 <html lang="<?php echo $this->language; ?>" dir="<?php echo $this->direction; ?>">
 <head>
-	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
-	<jdoc:include type="head" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+    <jdoc:include type="head" />
 </head>
-<body class="contentpane modal">
-	<jdoc:include type="message" />
-	<jdoc:include type="component" />
+<body class="contentpane modal<?php echo $this->direction === 'rtl' ? ' rtl' : ''; ?>">
+<jdoc:include type="message" />
+<jdoc:include type="component" />
 </body>
 </html>

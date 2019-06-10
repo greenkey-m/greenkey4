@@ -105,6 +105,12 @@ $(document).ready(function () {
         }
     });
 
+    $("ul.nav-child > li > a").click(function (e) {
+        e.preventDefault();
+        e.stopPropagation();
+        window.location = this.href;
+    });
+
 
     $(".category_wall a.closeme").click(function () {
         $(this).parent().removeClass("normal");

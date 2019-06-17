@@ -99,10 +99,12 @@ body.hide .navigation {
 /* Search */
 .ajax-search input[type="search"] {
   font-size: .8rem;
-  border: 1px solid #b2b2b2;
+  border: 1px solid #e0e0e0;
   border-radius: 2px;
+  background-color: #f6f6f6 !important;
   width: 100% !important;
   margin-top: 1px;
+  padding-left: 5px;
 }
 
 .ajax-search .btn-toolbar {
@@ -274,6 +276,10 @@ body.hide .offside {
   //background: black;
 }
 
+#page-container > div.container-fluid {
+  margin-top: 10px;
+}
+
 body.hide #page-container {
   left: 40px;
 }
@@ -298,9 +304,23 @@ body.hide #page-container {
   }
 
   body.hide .navigation {
-    padding-left: 310px;
+    padding-left: 10px;
   }
 
+}
+
+@media screen and (max-width: 575px) {
+  .navigation {
+    height: 50px;
+  }
+
+  .offside {
+    top: 25px;
+  }
+
+  #page-container {
+    top: 50px;
+  }
 }
 
 /* For small screens -------------------------------------------------------------------------*/
@@ -342,7 +362,7 @@ body.hide #page-container {
   }
 
   body.hide .navigation {
-    padding-left: 310px;
+    padding-left: 10px;
   }
 
   .offside.level2 {
@@ -953,6 +973,39 @@ ul.inactive > li > span, ul.inactive > li > a {
 .cw9 {
   animation-delay: .9s;
 }
+
+/*------------------------------------------------------------------------------------*/
+.blogthumb {
+  transition: all .3s ease-in-out;
+  overflow: hidden;
+  a:first-child {
+    display: block;
+    background-color: white;
+    border: 1px solid white;
+    margin: 10px 0;
+    overflow: hidden;
+    transition: all .3s ease-in-out;
+  }
+  a:first-child img {
+    border: 1px solid #555555;
+    width: 104%;
+    margin: -2%;
+    transition: all .3s ease-in-out;
+  }
+  a.short_desc {
+    position: absolute;
+    top: 100%;
+    padding: 15px 15px 15px 10px;
+    transition: all .3s ease-in-out;
+    text-decoration: none;
+    color: black;
+
+    h3 {
+      color: $main-color1;
+    }
+  }
+}
+
 
 /*------------------------------------------------------------------------------------*/
 

@@ -21,7 +21,7 @@ $assocParam = (JLanguageAssociations::isEnabled() && $params->get('show_associat
 
 <?php if ($this->item->state == 0 || strtotime($this->item->publish_up) > strtotime(JFactory::getDate())
 || ((strtotime($this->item->publish_down) < strtotime(JFactory::getDate())) && $this->item->publish_down != JFactory::getDbo()->getNullDate())) : ?>
-<a class="system-unpublished">
+<div class="system-unpublished">
     <?php endif; ?>
 
     <?php if (!isset($images->image_intro) || empty($images->image_intro)) :
